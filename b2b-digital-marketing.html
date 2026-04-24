@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B2B Digital Marketing — Anexis Labs</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1323,12 +1325,35 @@
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .case-card:hover {
     border-color: var(--blue);
     background: var(--bg3);
+  }
+
+  .case-metrics { flex: 1; }
+
+  .case-know-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    border: 1px solid rgba(0,180,216,0.3);
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background 0.2s, border-color 0.2s;
+    align-self: flex-start;
+  }
+
+  .case-card:hover .case-know-more {
+    background: var(--blue-dim);
+    border-color: var(--blue);
   }
 
   .case-meta {
@@ -3370,8 +3395,30 @@ footer {
 .footer-bottom p { font-size: 12px; color: var(--faint); font-weight: 300; }
 .footer-brand p { font-size:13px; color: var(--faint); margin-top:12px; font-style:italic; font-weight:300; max-width:240px; line-height:1.6; }
 
+/* ── EXTRA SMALL (≤480px) ── */
+@media (max-width: 480px) {
+  .who-grid { grid-template-columns: 1fr !important; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .trust-bar-inner { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .trust-item { padding: 14px 10px !important; min-height: 90px; }
+  .trust-number { font-size: 22px !important; }
+  .cta-inner { gap: 32px; }
+  section { padding: 60px 16px; }
+  .process-inner { padding: 60px 16px; }
+  .services-inner { padding: 60px 16px; }
+  .guide-banner { padding: 0 16px; }
+  .guide-banner-inner { padding: 36px 0; }
+  .testimonials-section { padding: 36px 16px; }
+  .know-layout { margin-right: -16px; }
+  .know-card { flex: 0 0 calc(90vw - 4px); }
+  .hero-headline { font-size: 30px; }
+  .hero-sub { font-size: 13px; }
+}
+
 @media (max-width: 860px) {
   .nav-wrapper {
+    position: fixed !important;
     top: 0;
     left: 0;
     right: 0;
@@ -3825,7 +3872,8 @@ footer {
           <span class="case-metric-label">Market position</span>
           <span class="case-metric-value">#1 advertiser in Ireland</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
     <a class="case-card reveal reveal-delay-1" href="vmedo-google-ads-case-study.html"><div class="case-meta">
         <span class="tag tag-industry">Healthcare</span>
@@ -3845,7 +3893,8 @@ footer {
           <span class="case-metric-label">Monthly ad spend managed</span>
           <span class="case-metric-value">$4,000+</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
     <a class="case-card reveal reveal-delay-2" href="amk-case-study.html"><div class="case-meta">
         <span class="tag tag-industry">Legal / Immigration</span>
@@ -3865,7 +3914,8 @@ footer {
           <span class="case-metric-label">Google impression growth</span>
           <span class="case-metric-value">375%</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
     <a class="case-card reveal" href="omkar-dumbre-case-study.html"><div class="case-meta">
         <span class="tag tag-industry">Finance</span>
@@ -3885,7 +3935,8 @@ footer {
           <span class="case-metric-label">New followers in 12 months</span>
           <span class="case-metric-value">3,000+</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
     <a class="case-card reveal reveal-delay-1" href="aditi-pawar-law-case-study.html"><div class="case-meta">
         <span class="tag tag-industry">Legal</span>
@@ -3905,7 +3956,8 @@ footer {
           <span class="case-metric-label">Profile views / week</span>
           <span class="case-metric-value">400+</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
     <a class="case-card reveal reveal-delay-2" href="hemin-patel-case-study.html"><div class="case-meta">
         <span class="tag tag-industry">Pharma</span>
@@ -3925,7 +3977,8 @@ footer {
           <span class="case-metric-label">Leads via outreach / month</span>
           <span class="case-metric-value">15+</span>
         </div>
-      </div></a>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
 
   </div>
 
@@ -4182,7 +4235,11 @@ footer {
       }
     });
 
-    form.addEventListener('submit', (event) => {
+    const SUPABASE_URL  = 'https://saywqwlgamcltgbsmudk.supabase.co';
+    const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheXdxd2xnYW1jbHRnYnNtdWRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MDg0NzYsImV4cCI6MjA5MDk4NDQ3Nn0.kkyTj4mKV7yAXoEQK2r9PIQTwOhClQPoA-TXW2deUVk';
+    const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, { auth: { persistSession: false } });
+
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -4191,14 +4248,26 @@ footer {
 
       const formData = new FormData(form);
       const lead = {
-        name: String(formData.get('name') || '').trim(),
+        name:    String(formData.get('name')    || '').trim(),
         company: String(formData.get('company') || '').trim(),
-        email: String(formData.get('email') || '').trim()
+        email:   String(formData.get('email')   || '').trim(),
+        source:  'B2B Pipeline Playbook'
       };
 
       if (!lead.name || !lead.company || !lead.email) {
         form.reportValidity();
         return;
+      }
+
+      const submitBtn = form.querySelector('.guide-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving…';
+
+      try {
+        const { error } = await sb.from('GuideLeads').insert([lead]).select();
+        if (error) console.error('[Supabase GuideLeads]', error);
+      } catch (err) {
+        console.error('[Supabase GuideLeads]', err);
       }
 
       const pdfWindow = window.open(pdfFile, '_blank', 'noopener');
@@ -4213,6 +4282,8 @@ footer {
       }
 
       form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Download';
       setModalOpen(false);
     });
   }
