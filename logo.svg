@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" width="180" height="44">
+  <rect width="178" height="42" x="1" y="1" rx="7" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="7,4"/>
+  <text x="90" y="20" font-family="sans-serif" font-size="9" font-weight="500" fill="#888" text-anchor="middle" letter-spacing="2">UPLOAD</text>
+  <text x="90" y="34" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a1a1a" text-anchor="middle" letter-spacing="1">YOUR LOGO</text>
+</svg>
