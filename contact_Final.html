@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1385,14 +1386,14 @@ footer {
 <!-- NAV -->
 <div class="nav-wrapper">
   <nav>
-    <a href="Homepage.html" class="logo">
+    <a href="index.html" class="logo">
     <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
   </a>
 
     <div class="nav-right">
       <ul class="nav-links">
         <li class="has-dropdown-item">
-          <a href="Homepage.html#solutions" class="has-dropdown dropdown-trigger">
+          <a href="index.html#solutions" class="has-dropdown dropdown-trigger">
             <span>Solutions</span>
             <span class="nav-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4 6.5 8 10.5 12 6.5"/></svg></span>
           </a>
@@ -1436,7 +1437,7 @@ footer {
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="Homepage.html#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="index.html#solutions" onclick="toggleMenu()">Solutions</a>
   <a href="b2b-digital-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">B2B Digital Marketing</a>
   <a href="performance-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Performance Marketing</a>
   <a href="linkedin-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">LinkedIn Marketing</a>
@@ -1476,32 +1477,32 @@ footer {
 
         <div class="form-group">
           <label>First Name <span class="req">*</span></label>
-          <input type="text" placeholder="Rohith" required />
+          <input type="text" name="firstname" placeholder="Rohith" required />
         </div>
 
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" placeholder="Kumar" />
+          <input type="text" name="lastname" placeholder="Kumar" />
         </div>
 
         <div class="form-group full">
           <label>Work Email <span class="req">*</span></label>
-          <input type="email" placeholder="you@company.com" required />
+          <input type="email" name="email" placeholder="you@company.com" required />
         </div>
 
         <div class="form-group">
           <label>Company Name</label>
-          <input type="text" placeholder="Acme Inc." />
+          <input type="text" name="company" placeholder="Acme Inc." />
         </div>
 
         <div class="form-group">
           <label>Phone / WhatsApp</label>
-          <input type="tel" placeholder="+91 98765 43210" />
+          <input type="tel" name="phone" placeholder="+91 98765 43210" />
         </div>
 
         <div class="form-group full">
           <label>Where are you based?</label>
-          <select>
+          <select name="country">
             <option value="" disabled selected>Select country</option>
             <option>India</option>
             <option>Ireland</option>
@@ -1517,32 +1518,32 @@ footer {
           <span class="services-label">What are you looking for? <span class="req">*</span></span>
           <div class="services-check-grid">
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="B2B Google Ads" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">B2B Google Ads</span>
             </label>
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="LinkedIn B2B Marketing" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">LinkedIn B2B Marketing</span>
             </label>
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="SEO & Content" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">SEO & Content</span>
             </label>
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="LinkedIn Sales Navigator" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">LinkedIn Sales Navigator</span>
             </label>
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="Full B2B Pipeline Setup" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">Full B2B Pipeline Setup</span>
             </label>
             <label class="svc-check-item">
-              <input type="checkbox" />
+              <input type="checkbox" name="service" value="Not sure yet" />
               <span class="check-box"><svg viewBox="0 0 10 8"><polyline points="1,4 4,7 9,1"/></svg></span>
               <span class="label-text">Not sure yet</span>
             </label>
@@ -1551,7 +1552,7 @@ footer {
 
         <div class="form-group full">
           <label>Tell us more</label>
-          <textarea placeholder="What are you trying to achieve? What's your current situation? Any context helps."></textarea>
+          <textarea name="message" placeholder="What are you trying to achieve? What's your current situation? Any context helps."></textarea>
         </div>
 
         <div class="form-group full" style="margin-top:0.25rem;">
@@ -1704,7 +1705,7 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="Homepage.html" class="logo">
+      <a href="index.html" class="logo">
         <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
       </a>
       <p>The engineer's approach to marketing.</p>
@@ -1721,7 +1722,7 @@ footer {
         <h4>Company</h4>
         <a href="case-studies.html">Case Studies</a>
         <a href="about-us.html">About</a>
-        <a href="Homepage.html#solutions">Solutions</a>
+        <a href="index.html#solutions">Solutions</a>
         <a href="contact_Final.html">Contact</a>
       </div>
     </div>
@@ -1775,12 +1776,77 @@ footer {
     });
   });
 
+  const SUPABASE_URL  = 'https://saywqwlgamcltgbsmudk.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheXdxd2xnYW1jbHRnYnNtdWRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MDg0NzYsImV4cCI6MjA5MDk4NDQ3Nn0.kkyTj4mKV7yAXoEQK2r9PIQTwOhClQPoA-TXW2deUVk';
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, { auth: { persistSession: false } });
+
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      form.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
+
+      const btn  = form.querySelector('.btn-submit');
+      const orig = btn.innerHTML;
+
+      const firstName = (form.firstname ? form.firstname.value.trim() : '');
+      const lastName  = (form.lastname  ? form.lastname.value.trim()  : '');
+      const services  = Array.from(form.querySelectorAll('input[name="service"]:checked')).map(cb => cb.value);
+
+      const data = {
+        name    : [firstName, lastName].filter(Boolean).join(' ') || null,
+        email   : form.email.value.trim(),
+        company : form.company.value.trim()  || null,
+        phone   : form.phone.value.trim()    || null,
+        service : services.length ? services.join(', ') : null,
+        message : form.message.value.trim()  || null,
+        status  : 'new'
+      };
+
+      if (!data.name || !data.email) {
+        alert('Please fill in your name and email.');
+        return;
+      }
+
+      btn.disabled   = true;
+      btn.innerHTML  = 'Sending…';
+
+      let supabaseOk = false;
+      let emailOk    = false;
+
+      try {
+        const { error } = await sb.from('Leads').insert([data]).select();
+        if (!error) supabaseOk = true;
+        else console.error('[Supabase]', error);
+      } catch (err) {
+        console.error('[Supabase]', err);
+      }
+
+      try {
+        const fd = new FormData();
+        fd.append('name',     data.name    || '');
+        fd.append('email',    data.email);
+        fd.append('company',  data.company || '');
+        fd.append('phone',    data.phone   || '');
+        fd.append('service',  data.service || '');
+        fd.append('message',  data.message || '');
+        fd.append('_subject', 'New Contact Inquiry from Anexis Labs');
+        fd.append('_captcha', 'false');
+        fd.append('_template', 'table');
+        fd.append('_cc', 'rohithk2026@gmail.com');
+        const res = await fetch('https://formsubmit.co/anandsullad77@gmail.com', { method: 'POST', body: fd });
+        emailOk = res.ok;
+      } catch (err) {
+        console.error('[FormSubmit]', err);
+      }
+
+      if (supabaseOk || emailOk) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+        btn.disabled  = false;
+        btn.innerHTML = orig;
+      }
     });
   }
 </script>
