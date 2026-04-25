@@ -1497,8 +1497,8 @@ footer {
         </div>
 
         <div class="form-group">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" name="phone" placeholder="+91 98765 43210" />
+          <label>Phone / WhatsApp <span style="color:var(--blue)">*</span></label>
+          <input type="tel" name="phone" placeholder="+91 98765 43210" required />
         </div>
 
         <div class="form-group full">
@@ -1607,7 +1607,7 @@ footer {
           </div>
           <div>
             <div class="contact-row-label">Email</div>
-            <a href="mailto:hello@anexislabs.com" class="contact-row-val">hello@anexislabs.com</a>
+            <a href="mailto:hello@anexislabs.com" class="contact-row-val">anexislabs@gmail.com</a>
           </div>
         </div>
 
@@ -1797,14 +1797,14 @@ footer {
         name    : [firstName, lastName].filter(Boolean).join(' ') || null,
         email   : form.email.value.trim(),
         company : form.company.value.trim()  || null,
-        phone   : form.phone.value.trim()    || null,
+        phone   : form.phone.value.trim(),
         service : services.length ? services.join(', ') : null,
         message : form.message.value.trim()  || null,
         status  : 'new'
       };
 
-      if (!data.name || !data.email) {
-        alert('Please fill in your name and email.');
+      if (!data.name || !data.email || !data.phone) {
+        alert('Please fill in your name, email, and phone number.');
         return;
       }
 
