@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Performance Marketing | Anexis Labs</title>
+<title>B2B Digital Marketing — Anexis Labs</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -726,34 +727,41 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 120px 60px 80px;
     width: 100%;
+    text-align: center;
   }
 
   .hero-section-inner {
-    max-width: 1200px;
+    max-width: 1060px;
     margin: 0 auto;
     width: 100%;
   }
 
   .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
+    display: flex;
+    justify-content: center;
     width: 100%;
+  }
+
+  .hero-left {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .hero-label {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    justify-content: center;
     font-size: 11px;
     font-weight: 500;
     letter-spacing: 2.5px;
     text-transform: uppercase;
     color: var(--blue);
-    margin-bottom: 28px;
+    margin: 0 auto 28px;
     opacity: 0;
     animation: fadeUp 0.6s ease forwards 0.2s;
   }
@@ -771,8 +779,9 @@
     line-height: 1.02;
     letter-spacing: 0;
     color: var(--text);
-    margin-bottom: 24px;
-    max-width: 620px;
+    margin: 0 auto 24px;
+    max-width: 860px;
+    text-wrap: balance;
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.35s;
   }
@@ -787,8 +796,9 @@
     color: var(--muted);
     font-weight: 300;
     line-height: 1.75;
-    margin-bottom: 40px;
-    max-width: 560px;
+    margin: 0 auto 40px;
+    max-width: 700px;
+    text-wrap: pretty;
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.5s;
   }
@@ -797,6 +807,7 @@
     display: flex;
     gap: 14px;
     align-items: center;
+    justify-content: center;
     opacity: 0;
     animation: fadeUp 0.7s ease forwards 0.65s;
   }
@@ -1314,12 +1325,35 @@
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .case-card:hover {
     border-color: var(--blue);
     background: var(--bg3);
+  }
+
+  .case-metrics { flex: 1; }
+
+  .case-know-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    border: 1px solid rgba(0,180,216,0.3);
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background 0.2s, border-color 0.2s;
+    align-self: flex-start;
+  }
+
+  .case-card:hover .case-know-more {
+    background: var(--blue-dim);
+    border-color: var(--blue);
   }
 
   .case-meta {
@@ -1849,10 +1883,141 @@
     margin-bottom: 14px;
   }
 
+  body.guide-modal-lock {
+    overflow: hidden;
+  }
+
+  .guide-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .guide-modal.open {
+    display: flex;
+  }
+
+  .guide-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 12, 0.68);
+    backdrop-filter: blur(10px);
+  }
+
+  .guide-modal-panel {
+    position: relative;
+    z-index: 1;
+    width: min(460px, 100%);
+    background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%);
+    border: 1px solid var(--border2);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 28px 80px rgba(0,0,0,0.32);
+  }
+
+  body.light .guide-modal-panel {
+    background: #fff;
+    box-shadow: 0 28px 80px rgba(10, 31, 68, 0.18);
+  }
+
+  .guide-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border2);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .guide-modal-panel h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.7px;
+    color: var(--text);
+    margin-bottom: 10px;
+    padding-right: 28px;
+  }
+
+  .guide-modal-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .guide-form {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .guide-field {
+    display: grid;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .guide-field input {
+    width: 100%;
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    padding: 13px 14px;
+  }
+
+  .guide-field input:focus {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(34,201,123,0.12);
+  }
+
+  .guide-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .guide-form-note {
+    text-align: center;
+    color: var(--faint) !important;
+    font-size: 11px !important;
+  }
+
   @media (max-width: 860px) {
     .guide-banner { padding: 0 24px; }
     .guide-banner-inner { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
     .guide-cta-block { align-items: flex-start; }
+  }
+
+  @media (max-width: 560px) {
+    .guide-modal {
+      padding: 16px;
+    }
+
+    .guide-modal-panel {
+      border-radius: 20px;
+      padding: 26px 18px 20px;
+    }
+
+    .guide-modal-panel h3 {
+      font-size: 23px;
+    }
   }
 
   /* TESTIMONIALS SECTION */
@@ -2485,196 +2650,6 @@
     margin-top: 6px;
   }
 
-  /* PIPELINE ANIMATION */
-  .pipeline-anim {
-    min-height: 430px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 0;
-    overflow: hidden;
-    color: var(--blue);
-    background-image:
-      linear-gradient(rgba(0,180,216,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,180,216,0.035) 1px, transparent 1px);
-    background-size: 44px 44px;
-    background-position: center;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards 0.5s;
-  }
-
-  body.light .pipeline-anim {
-    background-image:
-      linear-gradient(rgba(0,144,176,0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,144,176,0.055) 1px, transparent 1px);
-  }
-
-  .pipeline-anim::before {
-    content: '';
-    position: absolute;
-    inset: 4% -8%;
-    background:
-      radial-gradient(circle at 26% 48%, rgba(0,180,216,0.14), transparent 28%),
-      radial-gradient(circle at 78% 54%, rgba(34,201,123,0.12), transparent 24%);
-    filter: blur(10px);
-    opacity: 0.78;
-    pointer-events: none;
-  }
-
-  .pipeline-svg {
-    width: min(100%, 650px);
-    height: auto;
-    display: block;
-    overflow: visible;
-  }
-
-  .pipeline-gridline,
-  .pipeline-guide {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1;
-    opacity: 0.1;
-  }
-
-  .pipeline-guide { opacity: 0.16; stroke-dasharray: 4 10; }
-
-  .pipeline-track,
-  .pipeline-branch {
-    fill: none;
-    stroke: currentColor;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .pipeline-branch {
-    stroke-width: 1.5;
-    opacity: 0.25;
-  }
-
-  .pipeline-track {
-    stroke-width: 5;
-    opacity: 0.2;
-  }
-
-  .pipeline-track-live {
-    fill: none;
-    stroke: url(#b2bPipelineGlow);
-    stroke-width: 5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 120 420;
-    animation: pipelineTrace 5.8s ease-in-out infinite;
-  }
-
-  .pipeline-stage-node,
-  .pipeline-input-node,
-  .pipeline-output-node {
-    fill: var(--bg);
-    stroke: currentColor;
-    stroke-width: 1.4;
-  }
-
-  body.light .pipeline-stage-node,
-  body.light .pipeline-input-node,
-  body.light .pipeline-output-node {
-    fill: rgba(255,255,255,0.84);
-  }
-
-  .pipeline-input-node {
-    opacity: 0.54;
-    animation: nodeBreathe 3.2s ease-in-out infinite;
-  }
-
-  .pipeline-output-node {
-    stroke: var(--green);
-    filter: drop-shadow(0 0 10px rgba(34,201,123,0.22));
-  }
-
-  .pipeline-stage-node {
-    filter: drop-shadow(0 0 12px rgba(0,180,216,0.18));
-    animation: nodeBreathe 3.4s ease-in-out infinite;
-    animation-delay: var(--delay, 0s);
-  }
-
-  .pipeline-stage-ring {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.2;
-    opacity: 0;
-    animation: pipelinePulse 3.4s ease-out infinite;
-    animation-delay: var(--delay, 0s);
-  }
-
-  .pipeline-stage-label,
-  .pipeline-micro-label {
-    font-family: var(--font-body);
-    fill: var(--muted);
-    letter-spacing: 0;
-  }
-
-  .pipeline-stage-label {
-    font-size: 12px;
-    font-weight: 600;
-    fill: var(--text);
-  }
-
-  .pipeline-micro-label {
-    font-size: 10px;
-    opacity: 0.82;
-  }
-
-  .pipeline-particle {
-    fill: var(--blue);
-    filter: drop-shadow(0 0 8px rgba(0,180,216,0.7));
-  }
-
-  .pipeline-particle--green {
-    fill: var(--green);
-    filter: drop-shadow(0 0 8px rgba(34,201,123,0.65));
-  }
-
-  @keyframes pipelineTrace {
-    0% { stroke-dashoffset: 520; opacity: 0.18; }
-    18% { opacity: 0.95; }
-    82% { opacity: 0.95; }
-    100% { stroke-dashoffset: -520; opacity: 0.18; }
-  }
-
-  @keyframes pipelinePulse {
-    0% { opacity: 0; stroke-width: 1.2; }
-    18% { opacity: 0.42; }
-    56% { opacity: 0; stroke-width: 7; }
-    100% { opacity: 0; stroke-width: 7; }
-  }
-
-  @keyframes nodeBreathe {
-    0%, 100% { opacity: 0.72; }
-    50% { opacity: 1; }
-  }
-
-  .pipeline-metrics-row { display: none; }
-
-  .pipeline-mini-stat {
-    text-align: center;
-  }
-
-  .pms-val {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--green);
-    letter-spacing: -1px;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .pms-label {
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
   /* FRAMEWORK 4-COL */
   .anx-framework {
     grid-template-columns: repeat(4, 1fr) !important;
@@ -2687,7 +2662,6 @@
   @media (max-width: 1100px) {
     .anx-framework { grid-template-columns: repeat(2, 1fr) !important; }
     .hero-headline { font-size: 46px; }
-    .pipeline-anim { min-height: 390px; }
   }
   @media (max-width: 860px) {
     .anexis-mobile-mark {
@@ -2761,7 +2735,6 @@
     .anx-framework .process-step:nth-child(3) { --anexis-depth: 2; }
     .anx-framework .process-step:nth-child(4) { --anexis-depth: 3; }
 
-    .pipeline-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .hero-highlights { margin-bottom: 24px; }
 
     .pain-grid {
@@ -2873,10 +2846,6 @@
     }
   }
 
-  @media (max-width: 560px) {
-    .pipeline-stages { grid-template-columns: 1fr; }
-  }
-
   /* FRAMEWORK LABEL */
   .framework-label {
     font-family: var(--font-display);
@@ -2907,20 +2876,19 @@
       min-height: auto;
       padding: 112px 20px 52px;
       align-items: flex-start;
+      text-align: left;
     }
     .hero-section-inner {
       max-width: 680px;
     }
     .hero-top-meta {
       margin-bottom: 22px;
+      text-align: left;
     }
     .hero-inner {
       display: flex;
       flex-direction: column;
       gap: 0;
-    }
-    #pipelineAnim {
-      display: none;
     }
     .hero-left {
       order: 0;
@@ -2940,125 +2908,99 @@
     .hero-actions {
       flex-wrap: wrap;
       gap: 10px;
+      justify-content: flex-start;
     }
   }
 
 
   .hero-top-meta {
     margin-bottom: 18px;
+    text-align: center;
   }
 
   .hero-top-meta .breadcrumb {
     animation: fadeUp 0.5s ease forwards 0.1s;
     opacity: 0;
+    justify-content: center;
+    margin: 0 auto 20px;
   }
 
   .hero-top-meta .hero-label {
     margin-bottom: 0;
   }
 
-  .pm-hero {
-    text-align: center;
+  @media (max-width: 860px) {
+    .hero-top-meta {
+      text-align: left;
+    }
+
+    .hero-top-meta .breadcrumb,
+    .hero-top-meta .hero-label {
+      justify-content: flex-start;
+    }
+
+    .hero-top-meta .breadcrumb {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 
-  .pm-hero .hero-section-inner {
-    max-width: 1060px;
-  }
-
-  .pm-hero .hero-top-meta {
-    text-align: center;
-  }
-
-  .pm-hero .breadcrumb {
-    justify-content: center;
-  }
-
-  .pm-hero .hero-top-meta .hero-label {
-    justify-content: center;
-  }
-
-  .pm-hero .hero-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-  }
-
-  .pm-hero .hero-left {
-    width: min(100%, 900px);
-    margin: 0 auto;
-  }
-
-  .pm-hero .hero-headline,
-  .pm-hero .hero-sub {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .pm-hero .hero-headline {
-    max-width: 860px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .pm-hero .hero-sub {
-    max-width: 700px;
-  }
-
-  .pm-hero .hero-actions {
-    justify-content: center;
-  }
-
-  .pm-hero #pipelineAnim {
-    display: none;
-  }
-
-  .pm-headline-stage {
-    --pm-rotate-x: 0deg;
-    --pm-rotate-y: 0deg;
+  .b2b-headline-stage {
+    --b2b-rotate-x: 0deg;
+    --b2b-rotate-y: 0deg;
     position: relative;
     display: inline-block;
-    padding: 42px 26px 10px;
-    transform: perspective(1000px) rotateX(var(--pm-rotate-x)) rotateY(var(--pm-rotate-y));
+    padding: 42px 26px 8px;
+    transform: perspective(1000px) rotateX(var(--b2b-rotate-x)) rotateY(var(--b2b-rotate-y));
     transform-style: preserve-3d;
     transition: transform 0.18s ease-out;
   }
 
-  .pm-headline-stage::before {
+  .b2b-headline-stage::before {
     content: '';
     position: absolute;
     z-index: 1;
-    top: 34px;
-    bottom: 8px;
-    left: -12%;
-    width: 24%;
+    inset: 34px 9% 18px;
     border-radius: 999px;
     background:
-      linear-gradient(90deg, transparent, rgba(0,180,216,0.2), rgba(255,255,255,0.18), transparent);
-    filter: blur(1px);
+      linear-gradient(100deg, transparent 8%, rgba(0,180,216,0.2) 28%, transparent 48%),
+      linear-gradient(80deg, transparent 42%, rgba(34,201,123,0.16) 63%, transparent 84%);
+    filter: blur(10px);
     opacity: 0;
     pointer-events: none;
-    animation: pmScan 7.2s ease-in-out infinite;
+    animation: b2bConnectionGlow 7.4s ease-in-out infinite;
   }
 
-  body.light .pm-headline-stage::before {
+  .b2b-headline-stage::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 18%;
+    right: 18%;
+    top: 58%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,180,216,0.46), rgba(34,201,123,0.34), transparent);
+    opacity: 0;
+    transform: scaleX(0.2);
+    transform-origin: center;
+    pointer-events: none;
+    animation: b2bConnectionLine 7.4s ease-in-out infinite;
+  }
+
+  body.light .b2b-headline-stage::before {
     background:
-      linear-gradient(90deg, transparent, rgba(0,144,176,0.16), rgba(255,255,255,0.5), transparent);
+      linear-gradient(100deg, transparent 8%, rgba(0,144,176,0.14) 28%, transparent 48%),
+      linear-gradient(80deg, transparent 42%, rgba(24,150,92,0.13) 63%, transparent 84%);
   }
 
-  .headline-accent {
-    display: block !important;
-    color: var(--blue) !important;
-  }
-
-  .pm-keyword {
+  .b2b-keyword {
     position: relative;
     display: inline-block !important;
     color: inherit !important;
     white-space: nowrap;
   }
 
-  .pm-keyword::before {
+  .b2b-keyword::before {
     content: '';
     position: absolute;
     left: 0;
@@ -3066,14 +3008,29 @@
     bottom: 0.02em;
     height: 0.12em;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--blue) 45%, transparent);
+    background: color-mix(in srgb, var(--blue) 42%, transparent);
     opacity: 0;
     transform: scaleX(0.35);
     transform-origin: left center;
-    animation: pmKeywordGlow 7.2s ease-in-out infinite;
+    animation: b2bKeywordGlow 7.4s ease-in-out infinite;
   }
 
-  .pm-insight {
+  .b2b-keyword::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 9px);
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--blue);
+    box-shadow: 0 0 14px rgba(0,180,216,0.55);
+    opacity: 0;
+    transform: translate(-50%, -4px) scale(0.72);
+    animation: b2bNodePulse 7.4s ease-in-out infinite;
+  }
+
+  .b2b-insight {
     position: absolute;
     z-index: 4;
     left: 50%;
@@ -3092,82 +3049,78 @@
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    animation: pmInsight 7.2s ease-in-out infinite;
+    animation: b2bInsight 7.4s ease-in-out infinite;
   }
 
-  .pm-keyword--pipeline .pm-insight,
-  .pm-keyword--pipeline::before {
+  .b2b-keyword--business .b2b-insight,
+  .b2b-keyword--business::before,
+  .b2b-keyword--business::after {
     animation-delay: 1.15s;
   }
 
-  .pm-keyword--measure .pm-insight,
-  .pm-keyword--measure::before {
+  .b2b-keyword--you .b2b-insight,
+  .b2b-keyword--you::before,
+  .b2b-keyword--you::after {
     animation-delay: 2.3s;
   }
 
-  @keyframes pmScan {
-    0%, 12% { opacity: 0; transform: translateX(0); }
-    18% { opacity: 0.85; }
-    58% { opacity: 0.85; }
-    72%, 100% { opacity: 0; transform: translateX(520%); }
+  @keyframes b2bConnectionGlow {
+    0%, 12%, 92%, 100% { opacity: 0; }
+    26%, 70% { opacity: 0.7; }
   }
 
-  @keyframes pmInsight {
+  @keyframes b2bConnectionLine {
+    0%, 16%, 88%, 100% { opacity: 0; transform: scaleX(0.2); }
+    32%, 68% { opacity: 0.42; transform: scaleX(1); }
+  }
+
+  @keyframes b2bInsight {
     0%, 10%, 32%, 100% { opacity: 0; transform: translate(-50%, 8px); }
     15%, 24% { opacity: 1; transform: translate(-50%, 0); }
   }
 
-  @keyframes pmKeywordGlow {
+  @keyframes b2bKeywordGlow {
     0%, 10%, 34%, 100% { opacity: 0; transform: scaleX(0.35); }
     15%, 27% { opacity: 1; transform: scaleX(1); }
   }
 
+  @keyframes b2bNodePulse {
+    0%, 10%, 34%, 100% { opacity: 0; transform: translate(-50%, -4px) scale(0.72); }
+    16%, 28% { opacity: 0.9; transform: translate(-50%, 0) scale(1); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .pm-headline-stage,
-    .pm-headline-stage::before,
-    .pm-keyword::before,
-    .pm-insight {
+    .b2b-headline-stage,
+    .b2b-headline-stage::before,
+    .b2b-headline-stage::after,
+    .b2b-keyword::before,
+    .b2b-keyword::after,
+    .b2b-insight {
       animation: none !important;
       transform: none !important;
     }
 
-    .pm-headline-stage::before,
-    .pm-keyword::before,
-    .pm-insight {
+    .b2b-headline-stage::before,
+    .b2b-headline-stage::after,
+    .b2b-keyword::before,
+    .b2b-keyword::after,
+    .b2b-insight {
       display: none !important;
     }
   }
 
   @media (max-width: 860px) {
-    .pm-hero,
-    .pm-hero .hero-top-meta,
-    .pm-hero .hero-inner {
-      text-align: left;
-    }
-
-    .pm-hero .hero-top-meta .hero-label,
-    .pm-hero .breadcrumb,
-    .pm-hero .hero-actions {
-      justify-content: flex-start;
-    }
-
-    .pm-hero .hero-left,
-    .pm-hero .hero-headline,
-    .pm-hero .hero-sub {
-      margin-left: 0;
-      margin-right: 0;
-      max-width: 100%;
-    }
-
-    .pm-headline-stage {
+    .b2b-headline-stage {
       display: block;
       padding: 0;
       transform: none !important;
     }
 
-    .pm-headline-stage::before,
-    .pm-keyword::before,
-    .pm-insight {
+    .b2b-headline-stage::before,
+    .b2b-headline-stage::after,
+    .b2b-keyword::before,
+    .b2b-keyword::after,
+    .b2b-insight {
       display: none !important;
     }
   }
@@ -3201,11 +3154,9 @@
     .hero {
       padding: 104px 16px 44px;
     }
-    #pipelineAnim {
-      display: none;
-    }
     .hero-headline {
       font-size: 34px;
+      line-height: 1.04;
       letter-spacing: 0;
     }
     .hero-sub {
@@ -3444,6 +3395,27 @@ footer {
 .footer-bottom p { font-size: 12px; color: var(--faint); font-weight: 300; }
 .footer-brand p { font-size:13px; color: var(--faint); margin-top:12px; font-style:italic; font-weight:300; max-width:240px; line-height:1.6; }
 
+/* ── EXTRA SMALL (≤480px) ── */
+@media (max-width: 480px) {
+  .who-grid { grid-template-columns: 1fr !important; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .trust-bar-inner { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .trust-item { padding: 14px 10px !important; min-height: 90px; }
+  .trust-number { font-size: 22px !important; }
+  .cta-inner { gap: 32px; }
+  section { padding: 60px 16px; }
+  .process-inner { padding: 60px 16px; }
+  .services-inner { padding: 60px 16px; }
+  .guide-banner { padding: 0 16px; }
+  .guide-banner-inner { padding: 36px 0; }
+  .testimonials-section { padding: 36px 16px; }
+  .know-layout { margin-right: -16px; }
+  .know-card { flex: 0 0 calc(90vw - 4px); }
+  .hero-headline { font-size: 30px; }
+  .hero-sub { font-size: 13px; }
+}
+
 @media (max-width: 860px) {
   .nav-wrapper {
     position: fixed !important;
@@ -3496,8 +3468,8 @@ footer {
 <!-- NAV -->
 <div class="nav-wrapper">
   <nav>
-    <a href="index.html" class="logo">
-    <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
+    <a href="../index.html" class="logo">
+    <img src="../Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="../Logo light.png" alt="Anexis Labs" class="logo-light">
   </a>
 
     <div class="nav-right">
@@ -3526,13 +3498,13 @@ footer {
             </a>
           </div>
         </li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="contact_Final.html">Contact</a></li>
+        <li><a href="../case-studies.html">Case Studies</a></li>
+        <li><a href="../about-us.html">About Us</a></li>
+        <li><a href="../contact_Final.html">Contact</a></li>
       </ul>
       <div class="desktop-actions">
         <button class="theme-toggle-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" data-theme-toggle>☀</button>
-        <a href="contact_Final.html" class="nav-cta">Talk to a Strategist</a>
+        <a href="../contact_Final.html" class="nav-cta">Talk to a Strategist</a>
       </div>
     </div>
 
@@ -3552,119 +3524,34 @@ footer {
   <a href="performance-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Performance Marketing</a>
   <a href="linkedin-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">LinkedIn Marketing</a>
   <a href="personal-branding.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Personal Branding</a>
-  <a href="case-studies.html" onclick="toggleMenu()">Case Studies</a>
-  <a href="about-us.html" onclick="toggleMenu()">About Us</a>
-  <a href="contact_Final.html" onclick="toggleMenu()">Contact</a>
-  <a href="contact_Final.html" class="nav-cta" onclick="toggleMenu()">Talk to a Strategist</a>
+  <a href="../case-studies.html" onclick="toggleMenu()">Case Studies</a>
+  <a href="../about-us.html" onclick="toggleMenu()">About Us</a>
+  <a href="../contact_Final.html" onclick="toggleMenu()">Contact</a>
+  <a href="../contact_Final.html" class="nav-cta" onclick="toggleMenu()">Talk to a Strategist</a>
 </div>
 
 <!-- HERO -->
-<div class="hero pm-hero">
+<div class="hero">
   <div class="hero-section-inner">
     <div class="hero-top-meta">
 
-      <div class="hero-label">Performance Marketing</div>
+      <div class="hero-label">B2B Digital Marketing</div>
     </div>
     <div class="hero-inner">
       <div class="hero-left">
-        <div class="pm-headline-stage" data-pm-headline-stage>
+        <div class="b2b-headline-stage" data-b2b-headline-stage>
           <h1 class="hero-headline">
-            Turn <span class="pm-keyword pm-keyword--spend">ad spend<span class="pm-insight" aria-hidden="true">Waste checked</span></span> into <span class="pm-keyword pm-keyword--pipeline">pipeline<span class="pm-insight" aria-hidden="true">Qualified leads</span></span>
-            <span class="headline-accent">you can actually <span class="pm-keyword pm-keyword--measure">measure<span class="pm-insight" aria-hidden="true">Tracking live</span></span>.</span>
+            Build a <span class="b2b-keyword b2b-keyword--pipeline">B2B pipeline<span class="b2b-insight" aria-hidden="true">Steady leads</span></span>
+            <span>that brings <span class="b2b-keyword b2b-keyword--business">business<span class="b2b-insight" aria-hidden="true">Serious buyers</span></span> to <span class="b2b-keyword b2b-keyword--you">you<span class="b2b-insight" aria-hidden="true">No chasing</span></span>.</span>
           </h1>
         </div>
         <p class="hero-sub">
-          We build Google, Meta, and LinkedIn ad systems that bring in the right enquiries, reduce wasted spend, and make every campaign easier to understand, improve, and scale.
+          Most B2B companies rely on referrals, cold outreach, or random campaigns. We build a consistent demand system that brings the right buyers to you every month, so your team spends less time hunting and more time closing.
         </p>
         <div class="hero-actions">
-          <a href="contact_Final.html" class="btn-primary">Get a Free Audit →</a>
+          <a href="../contact_Final.html" class="btn-primary">Talk to a Strategist →</a>
           <a href="#results" class="btn-secondary">See Results</a>
         </div>
-      </div>
-
-      <div class="pipeline-anim" id="pipelineAnim">
-        <svg class="pipeline-svg" viewBox="0 0 640 380" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-          <defs>
-            <linearGradient id="b2bPipelineGlow" x1="56" y1="190" x2="594" y2="190" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="currentColor" stop-opacity="0.05"/>
-              <stop offset="0.28" stop-color="currentColor" stop-opacity="1"/>
-              <stop offset="0.72" stop-color="currentColor" stop-opacity="1"/>
-              <stop offset="1" stop-color="#22c97b" stop-opacity="0.9"/>
-            </linearGradient>
-            <path id="b2bPipelinePath" d="M58 190 C116 190 132 126 196 126 C260 126 268 190 326 190 C384 190 392 254 456 254 C522 254 532 190 594 190"/>
-          </defs>
-
-          <path class="pipeline-gridline" d="M40 58H600"/>
-          <path class="pipeline-gridline" d="M40 114H600"/>
-          <path class="pipeline-gridline" d="M40 170H600"/>
-          <path class="pipeline-gridline" d="M40 226H600"/>
-          <path class="pipeline-gridline" d="M40 282H600"/>
-          <path class="pipeline-gridline" d="M40 338H600"/>
-          <path class="pipeline-gridline" d="M84 36V344"/>
-          <path class="pipeline-gridline" d="M156 36V344"/>
-          <path class="pipeline-gridline" d="M228 36V344"/>
-          <path class="pipeline-gridline" d="M320 36V344"/>
-          <path class="pipeline-gridline" d="M412 36V344"/>
-          <path class="pipeline-gridline" d="M484 36V344"/>
-          <path class="pipeline-gridline" d="M556 36V344"/>
-
-          <path class="pipeline-guide" d="M196 72V306"/>
-          <path class="pipeline-guide" d="M326 72V306"/>
-          <path class="pipeline-guide" d="M456 72V306"/>
-          <path class="pipeline-guide" d="M594 72V306"/>
-
-          <path class="pipeline-branch" d="M52 96C90 96 106 132 140 154"/>
-          <path class="pipeline-branch" d="M52 190H124"/>
-          <path class="pipeline-branch" d="M52 284C92 284 108 242 140 222"/>
-          <path class="pipeline-branch" d="M594 190C612 190 622 160 628 140"/>
-          <path class="pipeline-branch" d="M594 190C612 190 622 220 628 244"/>
-
-          <use href="#b2bPipelinePath" xlink:href="#b2bPipelinePath" class="pipeline-track"/>
-          <use href="#b2bPipelinePath" xlink:href="#b2bPipelinePath" class="pipeline-track-live"/>
-
-          <circle class="pipeline-input-node" cx="52" cy="96" r="7"/>
-          <circle class="pipeline-input-node" cx="52" cy="190" r="7"/>
-          <circle class="pipeline-input-node" cx="52" cy="284" r="7"/>
-
-          <circle class="pipeline-stage-ring" style="--delay:0s" cx="196" cy="126" r="26"/>
-          <circle class="pipeline-stage-node" style="--delay:0s" cx="196" cy="126" r="15"/>
-          <text class="pipeline-stage-label" x="196" y="94" text-anchor="middle">Attract</text>
-          <text class="pipeline-micro-label" x="196" y="158" text-anchor="middle">right buyers</text>
-
-          <circle class="pipeline-stage-ring" style="--delay:0.6s" cx="326" cy="190" r="26"/>
-          <circle class="pipeline-stage-node" style="--delay:0.6s" cx="326" cy="190" r="15"/>
-          <text class="pipeline-stage-label" x="326" y="158" text-anchor="middle">Qualify</text>
-          <text class="pipeline-micro-label" x="326" y="222" text-anchor="middle">fit + intent</text>
-
-          <circle class="pipeline-stage-ring" style="--delay:1.2s" cx="456" cy="254" r="26"/>
-          <circle class="pipeline-stage-node" style="--delay:1.2s" cx="456" cy="254" r="15"/>
-          <text class="pipeline-stage-label" x="456" y="222" text-anchor="middle">Nurture</text>
-          <text class="pipeline-micro-label" x="456" y="286" text-anchor="middle">trust loop</text>
-
-          <circle class="pipeline-stage-ring" style="--delay:1.8s" cx="594" cy="190" r="28"/>
-          <circle class="pipeline-output-node" cx="594" cy="190" r="16"/>
-          <text class="pipeline-stage-label" x="594" y="158" text-anchor="middle">Convert</text>
-          <text class="pipeline-micro-label" x="594" y="224" text-anchor="middle">qualified pipeline</text>
-
-          <circle class="pipeline-output-node" cx="628" cy="140" r="5"/>
-          <circle class="pipeline-output-node" cx="628" cy="244" r="5"/>
-
-          <circle class="pipeline-particle" r="4">
-            <animateMotion dur="5.4s" repeatCount="indefinite" begin="0s">
-              <mpath href="#b2bPipelinePath" xlink:href="#b2bPipelinePath"/>
-            </animateMotion>
-          </circle>
-          <circle class="pipeline-particle" r="3.5">
-            <animateMotion dur="5.4s" repeatCount="indefinite" begin="1.25s">
-              <mpath href="#b2bPipelinePath" xlink:href="#b2bPipelinePath"/>
-            </animateMotion>
-          </circle>
-          <circle class="pipeline-particle pipeline-particle--green" r="4.5">
-            <animateMotion dur="5.4s" repeatCount="indefinite" begin="2.55s">
-              <mpath href="#b2bPipelinePath" xlink:href="#b2bPipelinePath"/>
-            </animateMotion>
-          </circle>
-        </svg>
       </div>
     </div>
   </div>
@@ -3673,10 +3560,71 @@ footer {
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="trust-item"><div class="trust-number">10,900+</div><div class="trust-label">Clicks generated for Mantech Ireland</div></div>
-    <div class="trust-item"><div class="trust-number">1,000+</div><div class="trust-label">Qualified leads per month for VMEDO</div></div>
-    <div class="trust-item"><div class="trust-number">9/10</div><div class="trust-label">Ad quality score achieved in healthcare campaigns</div></div>
-    <div class="trust-item"><div class="trust-number">4+</div><div class="trust-label">Markets managed across India, Ireland, USA and Canada</div></div>
+    <div class="trust-item">
+      <div class="trust-number">5+</div>
+      <div class="trust-label">Years running B2B campaigns across industries</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">4</div>
+      <div class="trust-label">Countries — India, Ireland, USA & Canada</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">15+</div>
+      <div class="trust-label">Industries served — from healthcare to manufacturing</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">50+</div>
+      <div class="trust-label">Businesses grown with measurable results</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- GUIDE BANNER -->
+<div class="guide-banner">
+  <div class="guide-banner-inner">
+    <div class="guide-left reveal">
+      <div class="guide-eyebrow">Free Resource</div>
+      <h3>From Stranger to Sale:<br>The B2B Pipeline Playbook</h3>
+      <p>The exact system we use to take a B2B prospect from never heard of you to signed client — covering reach, capture, nurture, and close. 3 pages. No fluff.</p>
+      <div class="guide-chapters">
+        <div class="guide-chapter"><span>01</span>Reach — awareness channels by stage</div>
+        <div class="guide-chapter"><span>02</span>Capture — lead forms, landing pages, outreach</div>
+        <div class="guide-chapter"><span>03</span>Nurture — email, WhatsApp, retargeting</div>
+        <div class="guide-chapter"><span>04</span>Convert — intent signals to closed deal</div>
+      </div>
+    </div>
+    <div class="guide-cta-block reveal reveal-delay-1">
+      <div class="guide-free-badge">✦ Free Download</div>
+      <button type="button" class="btn-guide" data-guide-open aria-controls="b2bGuideModal">Download the Guide ↓</button>
+      <div class="guide-note">PDF · 3 pages · Name, company and email required</div>
+    </div>
+  </div>
+</div>
+
+<div class="guide-modal" id="b2bGuideModal" aria-hidden="true">
+  <div class="guide-modal-backdrop" data-guide-close></div>
+  <div class="guide-modal-panel" role="dialog" aria-modal="true" aria-labelledby="b2bGuideTitle">
+    <button type="button" class="guide-modal-close" aria-label="Close download form" data-guide-close>&times;</button>
+    <div class="guide-eyebrow">Free Download</div>
+    <h3 id="b2bGuideTitle">Download the B2B Pipeline Playbook</h3>
+    <p>Share a few details and the playbook download will start instantly.</p>
+    <form class="guide-form" id="b2bGuideForm">
+      <label class="guide-field">
+        Name
+        <input type="text" name="name" autocomplete="name" required>
+      </label>
+      <label class="guide-field">
+        Company name
+        <input type="text" name="company" autocomplete="organization" required>
+      </label>
+      <label class="guide-field">
+        Email ID
+        <input type="email" name="email" autocomplete="email" required>
+      </label>
+      <button type="submit" class="btn-guide guide-submit">Download</button>
+      <p class="guide-form-note">Your PDF opens in a new window after submit.</p>
+    </form>
   </div>
 </div>
 
@@ -3714,7 +3662,7 @@ footer {
         <div class="know-card-body">
           <div class="know-quote-text">"Anexis built our website and helped us get real clients for our medical equipment supply business with better visibility, stronger enquiries, and more trust from serious prospects."</div>
           <div class="know-meta">
-            <img class="know-meta-photo" src="Praveen CEO.jpg" alt="Praveen, CEO of Praveen Healthcare Services">
+            <img class="know-meta-photo" src="../Praveen CEO.jpg" alt="Praveen, CEO of Praveen Healthcare Services">
             <div class="know-meta-lines">
               <div class="know-meta-name">Praveen</div>
               <div class="know-meta-role">Praveen Healthcare Services</div>
@@ -3729,18 +3677,132 @@ footer {
 <!-- PAIN SECTION -->
 <section id="problem">
   <div class="section-label reveal">The Problem</div>
-  <h2 class="section-title reveal reveal-delay-1">Ad spend should not<br>feel like a gamble.</h2>
-  <p class="section-sub reveal reveal-delay-2">Most paid campaigns fail for boring reasons: messy tracking, weak intent mapping, generic landing pages, and no weekly learning loop.</p>
+  <h2 class="section-title reveal reveal-delay-1">Your pipeline shouldn't<br>feel like guesswork.</h2>
+  <p class="section-sub reveal reveal-delay-2">If you're a B2B company, you've probably felt at least one of these. We've seen them all.</p>
+
   <div class="pain-grid">
-    <div class="pain-card reveal"><div class="pain-icon">%</div><button class="pain-toggle" type="button" aria-expanded="false"><span>Clicks are coming in, but buyers are not</span><span class="pain-chevron" aria-hidden="true">⌄</span></button><div class="pain-answer"><p>The campaign looks active, but the enquiries are low quality because the targeting, keyword intent, or offer is too broad.</p></div></div>
-    <div class="pain-card reveal reveal-delay-1"><div class="pain-icon">$</div><button class="pain-toggle" type="button" aria-expanded="false"><span>Your cost per lead keeps moving up</span><span class="pain-chevron" aria-hidden="true">⌄</span></button><div class="pain-answer"><p>Without a tight testing system, budget drifts into audiences and terms that never had a serious chance of converting.</p></div></div>
-    <div class="pain-card reveal reveal-delay-2"><div class="pain-icon">?</div><button class="pain-toggle" type="button" aria-expanded="false"><span>You cannot tell what is actually working</span><span class="pain-chevron" aria-hidden="true">⌄</span></button><div class="pain-answer"><p>Leads, calls, forms, and revenue are not connected cleanly, so every optimisation becomes a debate instead of a decision.</p></div></div>
+    <div class="pain-card reveal">
+      <div class="pain-icon">📉</div>
+      <button class="pain-toggle" type="button" aria-expanded="false">
+        <span>You're spending on ads with no predictable ROI</span>
+        <span class="pain-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="pain-answer">
+        <p>Budget goes in, random leads come out. No consistency, no attribution, no idea what's actually working or why.</p>
+      </div>
+    </div>
+    <div class="pain-card reveal reveal-delay-1">
+      <div class="pain-icon">🔇</div>
+      <button class="pain-toggle" type="button" aria-expanded="false">
+        <span>Your website gets traffic but no qualified leads</span>
+        <span class="pain-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="pain-answer">
+        <p>Google Analytics looks fine. But the people landing on your pages aren't your buyers — and they're not converting.</p>
+      </div>
+    </div>
+    <div class="pain-card reveal reveal-delay-2">
+      <div class="pain-icon">📬</div>
+      <button class="pain-toggle" type="button" aria-expanded="false">
+        <span>Your pipeline is entirely dependent on referrals</span>
+        <span class="pain-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="pain-answer">
+        <p>Referrals are great — until they dry up. Without a systematic inbound engine, your revenue is always one relationship away from a gap.</p>
+      </div>
+    </div>
   </div>
 </section>
+
 <!-- WHAT WE DO -->
-<div class="services-wrap" id="services"><div class="services-inner"><div class="section-label reveal">What We Do</div><h2 class="section-title reveal reveal-delay-1">Paid campaigns built<br>for qualified enquiries.</h2><p class="section-sub reveal reveal-delay-2">We plan, launch, track, and improve campaigns as one connected system: intent, ad, landing page, conversion, and weekly learning.</p><div class="services-grid"><div class="service-card reveal"><div class="service-tag">Search</div><h3>Google Ads for High-Intent Demand</h3><p>We capture buyers who are already searching for the service, product, or solution you sell.</p><ul class="service-bullets"><li>Keyword and competitor research by buying intent</li><li>Campaigns split by service, market, and stage</li><li>Weekly query cleanup and bid optimisation</li><li>Landing page alignment for stronger conversion</li></ul></div><div class="service-card reveal reveal-delay-1"><div class="service-tag">Social</div><h3>Meta & LinkedIn Demand Campaigns</h3><p>We build campaigns for audiences who need education before they enquire, with creative and offers matched to their stage.</p><ul class="service-bullets"><li>Audience strategy by role, location, and problem</li><li>Creative testing for offers and proof points</li><li>Retargeting for warm prospects</li><li>Lead quality feedback loops with sales teams</li></ul></div><div class="service-card reveal"><div class="service-tag">Conversion</div><h3>Landing Pages & Tracking</h3><p>We make sure traffic has a clear place to convert and that every lead source can be understood.</p><ul class="service-bullets"><li>Campaign-specific landing pages</li><li>Clear forms, calls, WhatsApp, and conversion events</li><li>Analytics, pixels, and conversion tracking cleanup</li><li>Lead source reporting that is easy to read</li></ul></div><div class="service-card reveal reveal-delay-1"><div class="service-tag">Scale</div><h3>Weekly Optimisation System</h3><p>We improve campaigns every week, using real performance data instead of assumptions.</p><ul class="service-bullets"><li>Search term and audience review</li><li>Ad copy and creative testing</li><li>Budget movement toward proven segments</li><li>Plain-language reports tied to business outcomes</li></ul></div></div></div></div>
+<div class="services-wrap" id="services">
+  <div class="services-inner">
+    <div class="section-label reveal">What We Do</div>
+    <h2 class="section-title reveal reveal-delay-1">Everything you need<br>to fill your pipeline.</h2>
+    <p class="section-sub reveal reveal-delay-2">We don't do one thing and disappear. We run your ads, grow your search presence, build your content, and make sure every piece is pulling in the same direction — more qualified enquiries.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-tag">Paid</div>
+        <h3>Google & LinkedIn Ads</h3>
+        <p>We run ads on Google and LinkedIn that show up when your buyers are actively searching for what you offer. You only pay when someone clicks — and we make sure the right people are clicking.</p>
+        <ul class="service-bullets">
+          <li>We research exactly what your buyers type into Google</li>
+          <li>Separate ads for each service or product you offer</li>
+          <li>We review and improve your ads every single week</li>
+          <li>You get more enquiries without spending more money</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-tag">Organic</div>
+        <h3>SEO & Content Strategy</h3>
+        <p>We get your website showing up on Google when people search for what you do. Over time, this brings a steady stream of visitors who are already looking for your services — without paying for every click.</p>
+        <ul class="service-bullets">
+          <li>We fix what's stopping Google from ranking your site</li>
+          <li>We write content that answers what your buyers are searching</li>
+          <li>We build your site's credibility so it climbs the rankings</li>
+          <li>Proven: VMEDO went from 3,578 to 24,230 visitors/month in a year</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-tag">LinkedIn</div>
+        <h3>B2B Content & LinkedIn Presence</h3>
+        <p>Your buyers are on LinkedIn. We build your presence there — through regular posts, profile improvements, and direct outreach — so that when decision-makers need what you offer, they already know your name.</p>
+        <ul class="service-bullets">
+          <li>Regular posts that build trust with your target audience</li>
+          <li>Founder and leadership content that opens doors</li>
+          <li>Direct outreach to the right people at the right companies</li>
+          <li>Aditi Pawar: 60+ leads/month through LinkedIn outreach alone</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-tag">Conversion</div>
+        <h3>Landing Pages & Lead Funnels</h3>
+        <p>Getting people to your website is only half the job. We build the pages that convince them to get in touch — with clear messaging, a simple form, and a reason to act now.</p>
+        <ul class="service-bullets">
+          <li>A dedicated page for each service or campaign</li>
+          <li>The most important information visible before any scrolling</li>
+          <li>Short forms with one clear action — no confusion, no drop-off</li>
+          <li>We test different versions to find what converts best</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- WHO THIS IS FOR -->
-<section id="who"><div class="section-label reveal">Who This Is For</div><h2 class="section-title reveal reveal-delay-1">Built for teams<br>that need accountable growth.</h2><p class="section-sub reveal reveal-delay-2">Best for companies that want paid marketing to produce measurable enquiries, not vague awareness reports.</p><div class="who-grid"><div class="who-card reveal"><span class="who-icon">01</span><h4>Service Businesses</h4><p>Companies selling high-intent services where search traffic can turn into real conversations.</p></div><div class="who-card reveal reveal-delay-1"><span class="who-icon">02</span><h4>Healthcare & Local Brands</h4><p>Teams that need location-aware campaigns, call tracking, and dependable lead flow.</p></div><div class="who-card reveal reveal-delay-2"><span class="who-icon">03</span><h4>B2B Sales Teams</h4><p>Businesses where lead quality matters more than raw volume.</p></div><div class="who-card reveal reveal-delay-3"><span class="who-icon">04</span><h4>Founders Scaling Spend</h4><p>Founders who want to increase ad budgets only after the numbers make sense.</p></div></div></section>
+<section id="who">
+  <div class="section-label reveal">Who This Is For</div>
+  <h2 class="section-title reveal reveal-delay-1">Built for B2B teams<br>who need real pipeline.</h2>
+  <p class="section-sub reveal reveal-delay-2">We work best with companies where the deal size matters, the sales cycle is real, and the leads need to be qualified — not just volume.</p>
+
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <span class="who-icon">🏗️</span>
+      <h4>Founders & CEOs</h4>
+      <p>Growing companies where the founder is still close to sales. You need a pipeline that doesn't depend on you doing all the outreach yourself.</p>
+    </div>
+    <div class="who-card reveal reveal-delay-1">
+      <span class="who-icon">📊</span>
+      <h4>Marketing Heads</h4>
+      <p>You have budget and targets, but the agency you're working with isn't bringing in enough of the right leads. You need a team that reports in plain numbers — leads in, cost per lead, revenue impact.</p>
+    </div>
+    <div class="who-card reveal reveal-delay-2">
+      <span class="who-icon">💼</span>
+      <h4>Sales & Revenue Leaders</h4>
+      <p>You know exactly what a good lead looks like. You're tired of getting contacts that go nowhere. Let's agree on who you want to reach and build the system that finds them.</p>
+    </div>
+    <div class="who-card reveal reveal-delay-3">
+      <span class="who-icon">🌐</span>
+      <h4>B2B Companies Scaling Globally</h4>
+      <p>We've run campaigns in India, Ireland, the US, and Canada. If you're selling across borders or planning to expand, we know how to reach buyers in different markets without wasting budget.</p>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <div class="process-wrap" id="process">
   <div class="process-inner">
@@ -3785,15 +3847,166 @@ footer {
 </div>
 
 <!-- CASE STUDIES -->
-<section id="results"><div class="section-label reveal">Results</div><h2 class="section-title reveal reveal-delay-1">Paid growth with<br>numbers behind it.</h2><p class="section-sub reveal reveal-delay-2">A few examples of campaigns where performance marketing moved real business metrics.</p><div class="case-grid"><a class="case-card reveal" href="mantech-ireland-case-study.html"><div class="case-meta"><span class="tag tag-industry">Manufacturing</span><span class="tag tag-service">Google Ads</span></div><h3>How we made an Irish machinery company the #1 Google advertiser in their market</h3><div class="case-metrics"><div class="case-metric"><span class="case-metric-label">Qualified leads / week</span><span class="case-metric-value">10 consistently</span></div><div class="case-metric"><span class="case-metric-label">Total clicks generated</span><span class="case-metric-value" style="color:var(--blue)">10,900+</span></div><div class="case-metric"><span class="case-metric-label">Market position</span><span class="case-metric-value">#1 advertiser</span></div></div></a><a class="case-card reveal reveal-delay-1" href="vmedo-google-ads-case-study.html"><div class="case-meta"><span class="tag tag-industry">Healthcare</span><span class="tag tag-service">Google Ads</span></div><h3>How we generated 1,000+ qualified leads every month for India's largest ambulance platform</h3><div class="case-metrics"><div class="case-metric"><span class="case-metric-label">Qualified leads / month</span><span class="case-metric-value">1,000+</span></div><div class="case-metric"><span class="case-metric-label">Ad quality score</span><span class="case-metric-value" style="color:var(--blue)">9/10</span></div><div class="case-metric"><span class="case-metric-label">Monthly spend managed</span><span class="case-metric-value">$4,000+</span></div></div></a><a class="case-card reveal reveal-delay-2" href="mattress-today-meta-ads-us-case-study.html"><div class="case-meta"><span class="tag tag-industry">Retail</span><span class="tag tag-service">Meta Ads</span></div><h3>How paid campaigns helped Mattress Today sell across a competitive US market</h3><div class="case-metrics"><div class="case-metric"><span class="case-metric-label">Channel</span><span class="case-metric-value">Meta Ads</span></div><div class="case-metric"><span class="case-metric-label">Market</span><span class="case-metric-value" style="color:var(--blue)">USA</span></div><div class="case-metric"><span class="case-metric-label">Focus</span><span class="case-metric-value">Sales campaigns</span></div></div></a></div><div style="text-align:center; margin-top: 48px;"><a href="case-studies.html" class="btn-secondary" style="display:inline-flex; align-items:center; gap:8px;">View all case studies &rarr;</a></div></section>
+<section id="results">
+  <div class="section-label reveal">Results</div>
+  <h2 class="section-title reveal reveal-delay-1">Real numbers.<br>Real B2B clients.</h2>
+  <p class="section-sub reveal reveal-delay-2">Every case study below is a B2B client with a real sales cycle, real deal sizes, and a real lead-generation challenge we solved.</p>
+
+  <div class="case-grid">
+
+    <a class="case-card reveal" href="../case_studies/mantech_ireland/mantech-ireland-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Manufacturing</span>
+        <span class="tag tag-service">Google Ads</span>
+      </div>
+      <h3>How we made an Irish machinery company the #1 Google advertiser in their market</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Qualified leads / week</span>
+          <span class="case-metric-value">10 consistently</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Total clicks generated</span>
+          <span class="case-metric-value" style="color:var(--blue)">10,900+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Market position</span>
+          <span class="case-metric-value">#1 advertiser in Ireland</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+    <a class="case-card reveal reveal-delay-1" href="../case_studies/vmedo/vmedo-google-ads-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Healthcare</span>
+        <span class="tag tag-service">Google Ads</span>
+      </div>
+      <h3>How we generated 1,000+ qualified leads every month for India's largest ambulance platform</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Qualified leads / month</span>
+          <span class="case-metric-value">1,000+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Ad quality score</span>
+          <span class="case-metric-value" style="color:var(--blue)">9/10</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Monthly ad spend managed</span>
+          <span class="case-metric-value">$4,000+</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+    <a class="case-card reveal reveal-delay-2" href="../case_studies/amk/amk-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Legal / Immigration</span>
+        <span class="tag tag-service">SEO</span>
+      </div>
+      <h3>How we drove 84,500 website visits in 7 months for an immigration firm in Canada</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Traffic increase in 7 months</span>
+          <span class="case-metric-value">290%</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Total visits generated</span>
+          <span class="case-metric-value" style="color:var(--blue)">84,500</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Google impression growth</span>
+          <span class="case-metric-value">375%</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+    <a class="case-card reveal" href="../case_studies/omkar_dumbre/omkar-dumbre-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Finance</span>
+        <span class="tag tag-service">LinkedIn B2B</span>
+      </div>
+      <h3>How a Chartered Accountant went from invisible on LinkedIn to 10+ inbound leads every month</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Content impressions</span>
+          <span class="case-metric-value">2,00,000+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Leads via Sales Navigator / month</span>
+          <span class="case-metric-value" style="color:var(--blue)">10+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">New followers in 12 months</span>
+          <span class="case-metric-value">3,000+</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+    <a class="case-card reveal reveal-delay-1" href="../case_studies/aditi_pawar/aditi-pawar-law-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Legal</span>
+        <span class="tag tag-service">LinkedIn B2B</span>
+      </div>
+      <h3>How a cross-border lawyer generated 60+ leads a month through LinkedIn alone</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Leads via LinkedIn / month</span>
+          <span class="case-metric-value">60+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Follower growth in 6 months</span>
+          <span class="case-metric-value" style="color:var(--blue)">210%</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Profile views / week</span>
+          <span class="case-metric-value">400+</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+    <a class="case-card reveal reveal-delay-2" href="../case_studies/hermin-patel/hemin-patel-case-study.html"><div class="case-meta">
+        <span class="tag tag-industry">Pharma</span>
+        <span class="tag tag-service">LinkedIn B2B</span>
+      </div>
+      <h3>How a pharma MD reached global distributors with a 755% jump in LinkedIn engagement</h3>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <span class="case-metric-label">Content impressions</span>
+          <span class="case-metric-value">50,000+</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Engagement increase in 5 months</span>
+          <span class="case-metric-value" style="color:var(--blue)">755%</span>
+        </div>
+        <div class="case-metric">
+          <span class="case-metric-label">Leads via outreach / month</span>
+          <span class="case-metric-value">15+</span>
+        </div>
+      </div>
+      <span class="case-know-more">Know More →</span></a>
+
+  </div>
+
+  <div style="text-align:center; margin-top: 48px;">
+    <a href="../case-studies.html" class="btn-secondary" style="display:inline-flex; align-items:center; gap:8px;">View all case studies →</a>
+  </div>
+
+</section>
+
 <!-- CTA -->
-<div class="cta-section" id="contact"><div class="cta-inner"><div class="section-label reveal" style="justify-content: center;">Get Started</div><h2 class="section-title reveal reveal-delay-1">Ready to make<br>paid growth measurable?</h2><p class="section-sub reveal reveal-delay-2">Let's look at your current campaigns and show you where the next round of qualified enquiries can come from.</p><div class="reveal reveal-delay-3" style="margin-top: 40px;"><a href="/cdn-cgi/l/email-protection#f2809d9a9b869a99c0c2c0c4b2959f939b9edc919d9f" class="btn-primary cta-btn">Book a Free Audit &rarr;</a></div></div></div>
+<div class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="section-label reveal" style="justify-content: center;">Get Started</div>
+    <h2 class="section-title reveal reveal-delay-1">Ready to build<br>your pipeline?</h2>
+    <p class="section-sub reveal reveal-delay-2">Let's look at your numbers and tell you exactly what we'd do. No fluff. No generic proposals. Just a clear, data-backed plan.</p>
+    <div class="reveal reveal-delay-3" style="margin-top: 40px;">
+      <a href="/cdn-cgi/l/email-protection#f2809d9a9b869a99c0c2c0c4b2959f939b9edc919d9f" class="btn-primary cta-btn">Book a Free Audit →</a>
+    </div>
+
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="logo">
-        <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
+      <a href="../index.html" class="logo">
+        <img src="../Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="../Logo light.png" alt="Anexis Labs" class="logo-light">
       </a>
       <p>The engineer's approach to marketing.</p>
     </div>
@@ -3807,10 +4020,10 @@ footer {
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="about-us.html">About</a>
+        <a href="../case-studies.html">Case Studies</a>
+        <a href="../about-us.html">About</a>
         <a href="#services">Solutions</a>
-        <a href="contact_Final.html">Contact</a>
+        <a href="../contact_Final.html">Contact</a>
       </div>
     </div>
   </div>
@@ -3990,6 +4203,141 @@ footer {
     });
   }
 
+  function initGuideDownloadModal() {
+    const modal = document.getElementById('b2bGuideModal');
+    const openButton = document.querySelector('[data-guide-open]');
+    const form = document.getElementById('b2bGuideForm');
+    const pdfFile = '../B2B Playbook.pdf';
+    if (!modal || !openButton || !form) return;
+
+    const setModalOpen = (isOpen) => {
+      modal.classList.toggle('open', isOpen);
+      modal.setAttribute('aria-hidden', String(!isOpen));
+      document.body.classList.toggle('guide-modal-lock', isOpen);
+
+      if (isOpen) {
+        const firstInput = modal.querySelector('input');
+        window.setTimeout(() => firstInput && firstInput.focus(), 50);
+      } else {
+        openButton.focus();
+      }
+    };
+
+    openButton.addEventListener('click', () => setModalOpen(true));
+
+    modal.querySelectorAll('[data-guide-close]').forEach((closeControl) => {
+      closeControl.addEventListener('click', () => setModalOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) {
+        setModalOpen(false);
+      }
+    });
+
+    const SUPABASE_URL  = 'https://saywqwlgamcltgbsmudk.supabase.co';
+    const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNheXdxd2xnYW1jbHRnYnNtdWRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MDg0NzYsImV4cCI6MjA5MDk4NDQ3Nn0.kkyTj4mKV7yAXoEQK2r9PIQTwOhClQPoA-TXW2deUVk';
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const lead = {
+        name:        String(formData.get('name')    || '').trim(),
+        company:     String(formData.get('company') || '').trim(),
+        email:       String(formData.get('email')   || '').trim(),
+        service:     'B2B Pipeline Playbook',
+        message:     'Downloaded the B2B Pipeline Playbook',
+        status:      'new',
+        lead_source: 'B2B Pipeline Playbook'
+      };
+
+      if (!lead.name || !lead.company || !lead.email) {
+        form.reportValidity();
+        return;
+      }
+
+      const submitBtn = form.querySelector('.guide-submit');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Saving…';
+
+      let supabaseOk = false;
+      let emailOk = false;
+      let supabaseError = '';
+      let emailError = '';
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/Leads', {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_ANON,
+            Authorization: 'Bearer ' + SUPABASE_ANON,
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal'
+          },
+          body: JSON.stringify(lead)
+        });
+
+        if (res.ok) {
+          supabaseOk = true;
+        } else {
+          const errorText = await res.text();
+          supabaseError = errorText || ('Supabase returned HTTP ' + res.status + '.');
+          console.error('[Supabase Guide]', res.status, errorText);
+        }
+      } catch (err) {
+        supabaseError = err.message || 'Supabase insert failed.';
+        console.error('[Supabase Guide]', err);
+      }
+
+      try {
+        const fd = new FormData();
+        fd.append('name', lead.name);
+        fd.append('email', lead.email);
+        fd.append('company', lead.company);
+        fd.append('service', lead.service);
+        fd.append('message', lead.message);
+        fd.append('_subject', 'New B2B Pipeline Playbook Download');
+        fd.append('_captcha', 'false');
+        fd.append('_template', 'table');
+        fd.append('_cc', 'rohithk2026@gmail.com');
+        const res = await fetch('https://formsubmit.co/anandsullad77@gmail.com', { method: 'POST', body: fd });
+        emailOk = res.ok;
+        if (!emailOk) emailError = 'FormSubmit returned HTTP ' + res.status + '.';
+      } catch (err) {
+        emailError = err.message || 'FormSubmit request failed.';
+        console.error('[FormSubmit Guide]', err);
+      }
+
+      if (!supabaseOk && !emailOk) {
+        alert('Something went wrong.\n\nSupabase: ' + (supabaseError || 'not saved') + '\nEmail: ' + (emailError || 'not sent'));
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download';
+        return;
+      }
+
+      const pdfWindow = window.open(pdfFile, '_blank', 'noopener');
+      if (!pdfWindow) {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = pdfFile;
+        pdfLink.target = '_blank';
+        pdfLink.rel = 'noopener';
+        document.body.appendChild(pdfLink);
+        pdfLink.click();
+        pdfLink.remove();
+      }
+
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Download';
+      setModalOpen(false);
+    });
+  }
+
   function setActiveAnexisFilter(index) {
     document.querySelectorAll('[data-anexis-filter]').forEach((button, buttonIndex) => {
       const isActive = buttonIndex === index;
@@ -4046,8 +4394,8 @@ footer {
     layout.scrollLeft = Math.max(0, targetLeft);
   }
 
-  function initPerformanceHeadlineTilt() {
-    const stage = document.querySelector('[data-pm-headline-stage]');
+  function initB2BHeadlineTilt() {
+    const stage = document.querySelector('[data-b2b-headline-stage]');
     const canTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!stage || !canTilt || reduceMotion) return;
@@ -4056,19 +4404,20 @@ footer {
       const rect = stage.getBoundingClientRect();
       const x = ((event.clientX - rect.left) / rect.width) - 0.5;
       const y = ((event.clientY - rect.top) / rect.height) - 0.5;
-      stage.style.setProperty('--pm-rotate-y', (x * 3).toFixed(2) + 'deg');
-      stage.style.setProperty('--pm-rotate-x', (y * -2).toFixed(2) + 'deg');
+      stage.style.setProperty('--b2b-rotate-y', (x * 3).toFixed(2) + 'deg');
+      stage.style.setProperty('--b2b-rotate-x', (y * -2).toFixed(2) + 'deg');
     });
 
     stage.addEventListener('pointerleave', () => {
-      stage.style.setProperty('--pm-rotate-y', '0deg');
-      stage.style.setProperty('--pm-rotate-x', '0deg');
+      stage.style.setProperty('--b2b-rotate-y', '0deg');
+      stage.style.setProperty('--b2b-rotate-x', '0deg');
     });
   }
 
   initPainAccordions();
+  initGuideDownloadModal();
   initAnexisSlider();
-  initPerformanceHeadlineTilt();
+  initB2BHeadlineTilt();
 
   if (document.readyState === 'complete') {
     centerTestimonialVideoCardOnMobile();

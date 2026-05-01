@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mattress Today Case Study - Anexis Labs</title>
-<meta name="description" content="Case study page for Mattress Today showing the Google Ads strategy, execution, and results in the Anexis Labs page style.">
+<title>Stars Healthcare Instagram Case Study - Anexis Labs</title>
+<meta name="description" content="Case study page for Stars Healthcare showing the Instagram growth strategy, execution, and organic lead results in the Anexis Labs page style.">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
 
@@ -1518,11 +1518,22 @@ footer {
 
   .case-detail-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(34px, 5vw, 64px);
-    line-height: 1.02;
-    letter-spacing: -2px;
+    font-size: clamp(22px, 2.8vw, 40px);
+    line-height: 1.18;
+    letter-spacing: -0.5px;
     margin-bottom: 14px;
-    max-width: 100%;
+    max-width: 860px;
+  }
+
+  .case-client-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: -6px;
+    margin-bottom: 18px;
+    opacity: 0.7;
   }
 
   .case-detail-hero h1 em {
@@ -1917,6 +1928,58 @@ footer {
     line-height: 1.7;
   }
 
+  .instagram-proof-layout {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .instagram-proof-layout .proof-visual {
+    height: 100%;
+    padding: 24px 20px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 100%),
+      var(--bg2);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.12);
+  }
+
+  body.light .instagram-proof-layout .proof-visual {
+    box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+  }
+
+  .instagram-proof-layout .proof-visual h3 {
+    margin-bottom: 18px;
+  }
+
+  .instagram-proof-layout .proof-image {
+    width: auto;
+    max-width: min(100%, 280px);
+    max-height: 520px;
+    margin: 0 auto;
+    object-fit: contain;
+    background: #05070a;
+    padding: 10px;
+    border-radius: 24px;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.20);
+  }
+
+  body.light .instagram-proof-layout .proof-image {
+    background: #f4f7fa;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  }
+
+  .instagram-proof-layout .proof-note {
+    max-width: 34ch;
+    margin: 16px auto 0;
+    text-align: center;
+  }
+
+  .instagram-proof-layout .proof-bullets {
+    margin-top: 20px;
+  }
+
   .final-cta-case {
     padding: 96px 60px 0;
   }
@@ -2021,8 +2084,9 @@ footer {
     }
 
     .case-detail-hero h1 {
-      font-size: clamp(30px, 10vw, 44px);
-      letter-spacing: -1.4px;
+      font-size: clamp(20px, 7vw, 30px);
+      letter-spacing: -0.2px;
+      line-height: 1.2;
     }
 
     .case-subcopy {
@@ -2095,6 +2159,75 @@ footer {
       font-size: 15px;
       justify-content: center;
     }
+
+    .instagram-proof-layout {
+      display: grid;
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(260px, 78vw);
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 14px;
+      padding: 0 14px 16px;
+      margin: 24px -14px 0;
+      scrollbar-width: none;
+    }
+
+    .instagram-proof-layout::-webkit-scrollbar {
+      display: none;
+    }
+
+    .instagram-proof-layout .proof-visual {
+      scroll-snap-align: center;
+      padding: 20px 16px;
+    }
+
+    .instagram-proof-layout .proof-image {
+      max-width: min(100%, 220px);
+      max-height: 360px;
+      padding: 8px;
+      border-radius: 20px;
+    }
+
+    .instagram-proof-layout .proof-note {
+      max-width: 30ch;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .instagram-proof-layout {
+      grid-template-columns: none;
+      grid-auto-columns: calc(100vw - 40px);
+      scroll-padding-inline: 12px;
+      padding: 0 12px 16px;
+      margin: 24px -12px 0;
+    }
+
+    .instagram-proof-layout .proof-visual {
+      padding: 18px 14px;
+      border-radius: 20px;
+    }
+
+    .instagram-proof-layout .proof-visual h3 {
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .instagram-proof-layout .proof-image {
+      max-width: min(100%, 210px);
+      max-height: 330px;
+    }
+
+    .instagram-proof-layout .proof-note {
+      max-width: none;
+      text-align: left;
+      line-height: 1.65;
+      margin-top: 14px;
+    }
   }
 
 </style>
@@ -2107,43 +2240,43 @@ footer {
 </script>
 <div class="nav-wrapper">
   <nav>
-    <a href="index.html" class="logo">
-    <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
+    <a href="../../index.html" class="logo">
+    <img src="../../Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="../../Logo light.png" alt="Anexis Labs" class="logo-light">
   </a>
 
     <div class="nav-right">
       <ul class="nav-links">
         <li class="has-dropdown-item">
-          <a href="index.html#solutions" class="has-dropdown dropdown-trigger">
+          <a href="../../index.html#solutions" class="has-dropdown dropdown-trigger">
             <span>Solutions</span>
             <span class="nav-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4 6.5 8 10.5 12 6.5"/></svg></span>
           </a>
           <div class="dropdown solutions-dropdown">
-            <a href="b2b-digital-marketing.html" class="solution-menu-card">
+            <a href="../../services/b2b-digital-marketing.html" class="solution-menu-card">
               <span class="solution-menu-title">B2B Digital Marketing</span>
               <span class="solution-menu-desc">Lead generation systems built for longer sales cycles and high-value deals.</span>
             </a>
-            <a href="performance-marketing.html" class="solution-menu-card">
+            <a href="../../services/performance-marketing.html" class="solution-menu-card">
               <span class="solution-menu-title">Performance Marketing</span>
               <span class="solution-menu-desc">Conversion-focused paid campaigns across Google, Meta, and other growth channels.</span>
             </a>
-            <a href="linkedin-marketing.html" class="solution-menu-card">
+            <a href="../../services/linkedin-marketing.html" class="solution-menu-card">
               <span class="solution-menu-title">LinkedIn Marketing</span>
               <span class="solution-menu-desc">Organic and paid LinkedIn strategies to build authority and attract decision-makers.</span>
             </a>
-            <a href="personal-branding.html" class="solution-menu-card">
+            <a href="../../services/personal-branding.html" class="solution-menu-card">
               <span class="solution-menu-title">Personal Branding</span>
               <span class="solution-menu-desc">Thought-leadership content and positioning that turns founders into trust magnets.</span>
             </a>
           </div>
         </li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="contact_Final.html">Contact</a></li>
+<li><a href="../../case-studies.html">Case Studies</a></li>
+        <li><a href="../../about-us.html">About Us</a></li>
+        <li><a href="../../contact_Final.html">Contact</a></li>
       </ul>
       <div class="desktop-actions">
         <button class="theme-toggle-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" data-theme-toggle>â˜€</button>
-        <a href="contact_Final.html" class="nav-cta">Talk to a Strategist</a>
+        <a href="../../contact_Final.html" class="nav-cta">Talk to a Strategist</a>
       </div>
     </div>
 
@@ -2158,47 +2291,48 @@ footer {
 
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html#solutions" onclick="toggleMenu()">Solutions</a>
-  <a href="b2b-digital-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">B2B Digital Marketing</a>
-  <a href="performance-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Performance Marketing</a>
-  <a href="linkedin-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">LinkedIn Marketing</a>
-  <a href="personal-branding.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Personal Branding</a>
-  <a href="case-studies.html" onclick="toggleMenu()">Case Studies</a>
-  <a href="about-us.html" onclick="toggleMenu()">About Us</a>
-  <a href="contact_Final.html" onclick="toggleMenu()">Contact</a>
-  <a href="contact_Final.html" class="nav-cta" onclick="toggleMenu()">Talk to a Strategist</a>
+  <a href="../../index.html#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="../../services/b2b-digital-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">B2B Digital Marketing</a>
+  <a href="../../services/performance-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Performance Marketing</a>
+  <a href="../../services/linkedin-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">LinkedIn Marketing</a>
+  <a href="../../services/personal-branding.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Personal Branding</a>
+  <a href="../../case-studies.html" onclick="toggleMenu()">Case Studies</a>
+  <a href="../../about-us.html" onclick="toggleMenu()">About Us</a>
+  <a href="../../contact_Final.html" onclick="toggleMenu()">Contact</a>
+  <a href="../../contact_Final.html" class="nav-cta" onclick="toggleMenu()">Talk to a Strategist</a>
 </div>
 
 <section class="case-detail-hero">
   <div class="case-detail-inner">
 
 
-    <div class="case-kicker">Google Ads Case Study</div>
+    <div class="case-kicker">Instagram Case Study</div>
 
     <div class="case-hero-grid">
       <div class="case-hero-copy">
         <div class="case-service-line">
-          <div class="case-service-pill">Google Ads</div>
-          <div class="case-industry-pill">Mattress Retail</div>
+          <div class="case-service-pill">Instagram</div>
+          <div class="case-industry-pill">Healthcare Education</div>
         </div>
-        <h1>Mattress Today <em>USA</em></h1>
-        <p class="case-subcopy">How we drove 49 high-intent results for Mattress Today in Conroe, Texas using tightly targeted Google Search campaigns built to capture ready-to-buy local demand.</p>
+        <h1>How a healthcare academy went from <em>100 to 9,000 Instagram followers</em> in 3 months</h1>
+        <p class="case-client-name">Stars Healthcare Academy · India</p>
+        <p class="case-subcopy">How we grew Stars Healthcare Academy from 100 to 9,000 plus Instagram followers in 3 months by pairing educational reels, trend-aware content formats, and strong profile CTAs that turned reach into engagement and organic leads.</p>
 
         <div class="case-hero-rail">
           <div class="case-hero-pill">
             <span class="case-hero-pill-label">Headline result</span>
-            <div class="case-hero-pill-value">49 total results</div>
-            <p>Generated from a focused search campaign built around local mattress buying intent.</p>
+            <div class="case-hero-pill-value">100 to 9K+ followers</div>
+            <p>Instagram growth accelerated from a small starting base to a meaningful healthcare audience in 90 days.</p>
           </div>
           <div class="case-hero-pill">
-            <span class="case-hero-pill-label">Campaign spend</span>
-            <div class="case-hero-pill-value">$178.59</div>
-            <p>Lean spend, disciplined targeting, and measurable lower-funnel actions.</p>
+            <span class="case-hero-pill-label">Reach achieved</span>
+            <div class="case-hero-pill-value">1.5M+ accounts</div>
+            <p>Content expanded far beyond the existing follower base and reached mostly non-followers.</p>
           </div>
           <div class="case-hero-pill">
             <span class="case-hero-pill-label">Market focus</span>
-            <div class="case-hero-pill-value">Conroe, Texas</div>
-            <p>Built around people actively searching for mattresses and bedding nearby.</p>
+            <div class="case-hero-pill-value">Bangalore, India</div>
+            <p>Content promoted healthcare training, certifications, and emergency-skill education for local and regional audiences.</p>
           </div>
         </div>
       </div>
@@ -2213,7 +2347,7 @@ footer {
       <div class="section-index">01</div>
       <h2 class="section-title">Challenge</h2>
     </div>
-    <p class="section-copy">Mattress Today wanted to increase store-visit intent in one of the most competitive mattress markets in the US. The brand already had Meta activity in place, but needed a stronger bottom-funnel search system that could capture shoppers already looking for mattresses in Conroe and turn that demand into direct local actions.</p>
+    <p class="section-copy">Stars Healthcare Academy needed Instagram to become a serious growth channel, not just a placeholder profile. The goal was to grow followers quickly, increase engagement, and convert educational content into profile visits, follower interaction, and organic leads for healthcare training programs.</p>
   </section>
 
   <section class="case-section">
@@ -2223,19 +2357,19 @@ footer {
     </div>
     <div class="cards-2">
       <div class="info-card">
-        <h3>Focused on high-intent local search</h3>
-        <p>We built the campaign around mattress-related keywords with strong buying intent in Conroe, targeting people already searching for nearby options instead of paying for colder awareness traffic.</p>
+        <h3>Built around educational reels with viral potential</h3>
+        <p>We focused on short-form educational content that could spread beyond the current audience while still reinforcing the academy's credibility in BLS, ACLS, and First Aid training.</p>
       </div>
       <div class="info-card">
-        <h3>Optimised for store-driving actions</h3>
-        <p>The account structure was set up around contact, directions, and engagement goals so the campaign could prioritise actions that actually move a shopper closer to visiting or contacting the store.</p>
+        <h3>Optimised content for discovery and action</h3>
+        <p>Trending reel formats and clear CTAs were layered into the content so viewers were pushed not only to watch, but also to visit the profile, follow the account, and click through for more information.</p>
       </div>
     </div>
     <ul class="section-list">
-      <li>Launched Google Search campaigns targeting high-intent local mattress keywords.</li>
-      <li>Captured purchase-ready buyers searching for mattresses in Conroe.</li>
-      <li>Built ad groups around store visit, directions, and contact-focused conversion goals.</li>
-      <li>Complemented existing Meta campaigns with lower-funnel search demand capture.</li>
+      <li>Posted educational reels designed for shareability and non-follower discovery.</li>
+      <li>Used trending Instagram formats to expand reach beyond the existing audience.</li>
+      <li>Added CTAs that encouraged profile visits, follows, and link clicks.</li>
+      <li>Shaped the page into a lead-supporting organic content engine rather than a passive brand feed.</li>
     </ul>
   </section>
 
@@ -2246,16 +2380,16 @@ footer {
     </div>
     <div class="cards-3">
       <div class="info-card">
-        <h3>Keyword and ad-group build</h3>
-        <p>Search terms were grouped around local mattress intent, helping the account speak directly to nearby shoppers looking for a store, product information, or a fast next step.</p>
+        <h3>Content themes rooted in practical healthcare value</h3>
+        <p>Reels centered on life-saving skills, healthcare learning, and highly practical training moments so the page could attract students and professionals with genuine interest.</p>
       </div>
       <div class="info-card">
-        <h3>Local extensions and call actions</h3>
-        <p>We used local extensions and call ads to reduce friction and make it easier for shoppers to call, get directions, or engage with the business immediately.</p>
+        <h3>Non-follower reach as a growth lever</h3>
+        <p>Content was intentionally shaped for broader discoverability, which helped the account reach audiences far outside its starting follower base and build momentum fast.</p>
       </div>
       <div class="info-card">
-        <h3>Efficiency-led optimisation</h3>
-        <p>Bids and ad copy were continuously refined around cost efficiency, while the campaign optimised toward contact conversions as the highest-value tracked outcome.</p>
+        <h3>Profile activity driven by CTA-led publishing</h3>
+        <p>Each piece of content gave viewers a next step, helping convert attention into profile visits, external link taps, and lead-friendly audience interaction.</p>
       </div>
     </div>
   </section>
@@ -2265,34 +2399,34 @@ footer {
       <div class="section-index">04</div>
       <h2 class="section-title">Key metrics / outcomes</h2>
     </div>
-    <p class="section-copy">The campaign translated a small Google Search budget into meaningful local buying signals. Instead of chasing vanity traffic, the account generated actions tied to real shopping intent such as calls, directions, engagement, and page views.</p>
+    <p class="section-copy">The result was a breakout Instagram growth phase that moved Stars Healthcare from a small account to a visible healthcare education brand. Instead of relying on slow follower accumulation, the page built momentum through reels that delivered large-scale reach, strong profile activity, and repeated viral performance.</p>
     <div class="metric-grid">
       <div class="metric-card">
-        <div class="metric-label">Results</div>
-        <div class="metric-value">49</div>
-        <div class="metric-note">Total tracked results from Google Search on just $178.59 in spend.</div>
+        <div class="metric-label">Follower growth</div>
+        <div class="metric-value">100 to 9K+</div>
+        <div class="metric-note">Follower base expanded by roughly 8,900 in just 3 months.</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Clicks</div>
-        <div class="metric-value">57</div>
-        <div class="metric-note">High-intent interactions generated from a tightly scoped local keyword set.</div>
+        <div class="metric-label">Reach</div>
+        <div class="metric-value">1.5M+</div>
+        <div class="metric-note">Accounts reached over the 90-day reporting period, driven mostly by non-followers.</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">Impressions</div>
-        <div class="metric-value">949</div>
-        <div class="metric-note">Relevant visibility in a competitive local retail search environment.</div>
+        <div class="metric-label">Profile visits</div>
+        <div class="metric-value">10,766</div>
+        <div class="metric-note">Profile visits increased sharply as content drove viewers deeper into the page.</div>
       </div>
       <div class="metric-card">
-        <div class="metric-label">CTR</div>
-        <div class="metric-value">6%</div>
-        <div class="metric-note">Healthy click-through rate for local shoppers already showing intent.</div>
+        <div class="metric-label">Viral reel peak</div>
+        <div class="metric-value">1M views</div>
+        <div class="metric-note">One reel crossed the million-view mark while several others passed 80K plus.</div>
       </div>
     </div>
     <ul class="section-list">
-      <li>Produced 26 engagement actions, 9 direction requests, 11 page views, and 3 direct contacts.</li>
-      <li>Delivered an average cost per result of $3.64.</li>
-      <li>Optimised the campaign toward contact conversions as the highest-value action.</li>
-      <li>Helped Mattress Today complement Meta with stronger bottom-funnel search performance.</li>
+      <li>Grew the account from 100 followers to more than 9,000 in 3 months.</li>
+      <li>Expanded reach to 1,503,300 accounts in the 90-day period shown in the proof.</li>
+      <li>Drove 10,766 profile visits and strong external link activity through content CTAs.</li>
+      <li>Generated organic lead potential by turning followers and viewers into active profile visitors.</li>
     </ul>
   </section>
 
@@ -2308,44 +2442,44 @@ footer {
           <div class="timeline-step">
             <div class="timeline-phase">Phase 1</div>
             <div>
-              <h4>Objective and keyword mapping</h4>
-              <p class="timeline-copy">Defined the local search intent to target, with a focus on mattress buyers in Conroe who were already close to making a purchase decision.</p>
+              <h4>Content direction and growth objective mapping</h4>
+              <p class="timeline-copy">Defined the page's growth goals around follower increase, engagement lift, and organic lead support while identifying the healthcare content themes most likely to perform.</p>
             </div>
           </div>
           <div class="timeline-step">
             <div class="timeline-phase">Phase 2</div>
             <div>
-              <h4>Campaign build and launch</h4>
-              <p class="timeline-copy">Built Google Search campaigns and ad groups around store visit, directions, and contact outcomes, then launched with local extensions and call-focused formats.</p>
+              <h4>Reel production and format testing</h4>
+              <p class="timeline-copy">Published educational reels using trending structures, viral hooks, and healthcare-specific insights to expand non-follower reach quickly.</p>
             </div>
           </div>
           <div class="timeline-step">
             <div class="timeline-phase">Phase 3</div>
             <div>
-              <h4>Optimisation and refinement</h4>
-              <p class="timeline-copy">Continuously improved bids and ad copy for cost efficiency while guiding the campaign toward the most commercially valuable search conversions.</p>
+              <h4>CTA optimisation and scale-up</h4>
+              <p class="timeline-copy">Refined publishing around profile-visit CTAs, link-click prompts, and repeatable reel formats that kept momentum high and built stronger organic lead behavior.</p>
             </div>
           </div>
         </div>
       </div>
       <div class="timeline-card">
         <h3>Core deliverables</h3>
-        <p>Everything was designed to turn local search demand into measurable retail actions without wasting budget.</p>
+        <p>Everything was designed to turn Instagram into a real growth and lead-support channel for a healthcare training brand.</p>
         <div class="deliverables-grid">
           <div class="deliverable-card">
-            <span>Targeting</span>
-            <h4>High-intent local search campaigns</h4>
-            <p>Campaign build focused on shoppers searching for mattresses in and around Conroe.</p>
+            <span>Content</span>
+            <h4>Educational reel strategy</h4>
+            <p>Short-form content positioned the academy as useful, credible, and highly shareable.</p>
           </div>
           <div class="deliverable-card">
-            <span>Conversions</span>
-            <h4>Contact and directions goal setup</h4>
-            <p>Account structured around direct actions that indicate store-visit intent.</p>
+            <span>Growth</span>
+            <h4>Trend-aware discovery formats</h4>
+            <p>Reels were shaped to perform beyond the follower base and earn stronger non-follower distribution.</p>
           </div>
           <div class="deliverable-card">
-            <span>Extensions</span>
-            <h4>Local and call ad enhancements</h4>
-            <p>Extensions added to make it easier for nearby buyers to engage quickly.</p>
+            <span>Conversion</span>
+            <h4>CTA-led profile activity flow</h4>
+            <p>Publishing encouraged viewers to visit the profile, follow, and click through for deeper interest.</p>
           </div>
         </div>
       </div>
@@ -2357,30 +2491,21 @@ footer {
       <div class="section-index">06</div>
       <h2 class="section-title">Proof / dashboard snapshot</h2>
     </div>
-    <div class="proof-layout">
+    <div class="proof-layout instagram-proof-layout">
       <div class="proof-visual">
-        <h3>Primary Google Search result panel</h3>
-        <img class="proof-image" src="mattress-today-search-ads-results.png" alt="Google Search ads results panel for Mattress Today">
-        <p class="proof-note">This panel matches the core campaign story from the PDF: 949 impressions, 57 clicks, 49 total results, and $178.59 in spend, with tracked actions spread across contact, engagement, directions, and page views.</p>
+        <h3>Reach expansion snapshot</h3>
+        <img class="proof-image" src="stars-healthcare-instagram-reach.jpg" alt="Instagram reach analytics for Stars Healthcare">
+        <p class="proof-note">The reach view shows 1,503,300 accounts reached in the last 90 days, with 97.9 percent of that reach coming from non-followers, validating the discovery-led reel strategy.</p>
       </div>
       <div class="proof-visual">
-        <h3>Supporting local and Maps activity</h3>
-        <img class="proof-image" src="mattress-today-location-ads-results.png" alt="Location and Maps ads results panel for Mattress Today">
-        <p class="proof-note">The second dashboard view shows additional local-market engagement, including 58 results from Maps-focused activity and 19 get-directions actions, reinforcing the brand's ability to turn search visibility into store-intent behaviour.</p>
-        <div class="proof-bullets">
-          <div class="proof-bullet">
-            <strong>Bottom-funnel demand capture</strong>
-            <p>The account converted nearby mattress searches into actions that indicate real purchase intent, not just passive browsing.</p>
-          </div>
-          <div class="proof-bullet">
-            <strong>Action mix that supports store visits</strong>
-            <p>Direction requests, engagement events, page views, and direct contacts all show that the traffic was commercially useful for a local retailer.</p>
-          </div>
-          <div class="proof-bullet">
-            <strong>Strong efficiency on a small budget</strong>
-            <p>The dashboard backs up the main outcome of the case study: meaningful local results delivered from a very lean Google Ads spend.</p>
-          </div>
-        </div>
+        <h3>Profile activity snapshot</h3>
+        <img class="proof-image" src="stars-healthcare-instagram-profile.jpg" alt="Instagram profile activity analytics for Stars Healthcare">
+        <p class="proof-note">The profile activity panel shows 10,806 overall actions, including 10,766 profile visits and 40 external link taps, with profile activity up 1,441.5 percent over the earlier comparison period.</p>
+      </div>
+      <div class="proof-visual">
+        <h3>Follower growth snapshot</h3>
+        <img class="proof-image" src="stars-healthcare-instagram-followers.jpg" alt="Instagram follower growth analytics for Stars Healthcare">
+        <p class="proof-note">The follower panel shows the account at 9,442 followers with growth of 8,783 overall in the reporting period, reinforcing the jump from the original 100-follower base.</p>
       </div>
     </div>
   </section>
@@ -2389,11 +2514,11 @@ footer {
 <section class="final-cta-case">
   <div class="final-cta-inner">
     <span class="section-eyebrow">Need this for your business?</span>
-    <h2>Want a pipeline like this for your <em style="font-style:normal;color:var(--blue);">own niche?</em></h2>
-    <p>If you run a local business and need more high-intent leads, calls, and store visits, we can build a search campaign that captures real buyer demand instead of wasting budget on vanity traffic.</p>
+    <h2>Want Instagram to become a real <em style="font-style:normal;color:var(--blue);">growth engine</em> for your brand?</h2>
+    <p>If you run an education, healthcare, or expertise-led business and want Instagram content that grows followers, reach, and qualified interest at the same time, we can build a reel strategy around that outcome.</p>
     <div class="final-cta-btns">
-      <a href="contact_Final.html" class="btn-primary">Talk to a Strategist</a>
-      <a href="case-studies.html" class="btn-outline">Back to case studies</a>
+      <a href="../../contact_Final.html" class="btn-primary">Talk to a Strategist</a>
+      <a href="../../case-studies.html" class="btn-outline">Back to case studies</a>
     </div>
   </div>
 </section>
@@ -2401,25 +2526,25 @@ footer {
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="logo">
-        <img src="Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="Logo light.png" alt="Anexis Labs" class="logo-light">
+      <a href="../../index.html" class="logo">
+        <img src="../../Logo dark.png" alt="Anexis Labs" class="logo-dark"><img src="../../Logo light.png" alt="Anexis Labs" class="logo-light">
       </a>
       <p>The engineer's approach to marketing.</p>
     </div>
     <div class="footer-links">
       <div class="footer-col">
         <h4>Solutions</h4>
-        <a href="b2b-digital-marketing.html">B2B Digital Marketing</a>
-        <a href="performance-marketing.html">Performance Marketing</a>
-        <a href="linkedin-marketing.html">LinkedIn Marketing</a>
-        <a href="personal-branding.html">Personal Branding</a>
+        <a href="../../services/b2b-digital-marketing.html">B2B Digital Marketing</a>
+        <a href="../../services/performance-marketing.html">Performance Marketing</a>
+        <a href="../../services/linkedin-marketing.html">LinkedIn Marketing</a>
+        <a href="../../services/personal-branding.html">Personal Branding</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="about-us.html">About</a>
-        <a href="index.html#solutions">Solutions</a>
-        <a href="contact_Final.html">Contact</a>
+        <a href="../../case-studies.html">Case Studies</a>
+        <a href="../../about-us.html">About</a>
+        <a href="../../index.html#solutions">Solutions</a>
+        <a href="../../contact_Final.html">Contact</a>
       </div>
     </div>
   </div>
