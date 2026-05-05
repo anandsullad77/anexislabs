@@ -943,6 +943,154 @@
     letter-spacing: 0.2px;
   }
 
+  /* CLIENT LOGOS */
+  .client-logos-section {
+    --logo-set-width: min(1120px, calc(100vw - 120px));
+    --logo-slide-gap: 24px;
+    max-width: 100%;
+    padding: 82px 60px 76px;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .client-logos-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .client-logos-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 34px;
+  }
+
+  .client-logos-section .section-label {
+    margin-bottom: 12px;
+  }
+
+  .client-logos-section .section-title {
+    font-size: clamp(30px, 3vw, 44px);
+    margin-bottom: 0;
+  }
+
+  .client-logos-note {
+    max-width: 360px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .client-logos-slider {
+    width: var(--logo-set-width);
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 6px 0 18px;
+  }
+
+  .client-logos-slider--mobile {
+    display: none;
+  }
+
+  .client-logos-track {
+    display: flex;
+    align-items: stretch;
+    gap: var(--logo-slide-gap);
+    width: max-content;
+    animation: clientLogoPages 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+    will-change: transform;
+  }
+
+  .client-logos-slider:hover .client-logos-track {
+    animation-play-state: paused;
+  }
+
+  .client-logo-set {
+    width: var(--logo-set-width);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 132px);
+    gap: 24px;
+    flex: 0 0 var(--logo-set-width);
+  }
+
+  .client-logo-card {
+    padding: 26px;
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--bg2) 88%, white 12%);
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+  }
+
+  body.light .client-logo-card {
+    background: #ffffff;
+    box-shadow: 0 14px 30px rgba(16,24,32,0.08);
+  }
+
+  .client-logo-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--blue) 36%, var(--border) 64%);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.14);
+  }
+
+  .client-logo-card img {
+    width: min(100%, 210px);
+    height: 86px;
+    object-fit: contain;
+    display: block;
+  }
+
+  @keyframes clientLogoPages {
+    0%, 28% {
+      transform: translateX(0);
+    }
+    38%, 66% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    76%, 99.9% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes clientLogoMobilePages {
+    0%, 13% {
+      transform: translateX(0);
+    }
+    19%, 32% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    38%, 51% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    57%, 70% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    76%, 99.9% {
+      transform: translateX(calc(0px - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap) - var(--logo-set-width) - var(--logo-slide-gap)));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .client-logos-track {
+      animation: none !important;
+    }
+  }
+
   /* ── SECTIONS ── */
   section {
     padding: 120px 60px;
@@ -2682,6 +2830,24 @@
     .team-name { font-size: 20px; }
   }
 
+  @media (max-width: 1024px) {
+    .client-logos-section {
+      --logo-set-width: calc(100vw - 80px);
+      --logo-slide-gap: 18px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    .client-logo-set {
+      grid-template-rows: repeat(3, 116px);
+      gap: 18px;
+    }
+
+    .client-logo-card {
+      padding: 22px;
+    }
+  }
+
   /* MOBILE */
   @media (max-width: 768px) {
 
@@ -2746,6 +2912,95 @@
       text-align: center;
     }
 
+    .client-logos-section {
+      --logo-set-width: calc(100vw - 40px);
+      --logo-slide-gap: 14px;
+      padding: 48px 20px 46px !important;
+      margin-top: 28px;
+      border-radius: 22px 22px 0 0;
+    }
+
+    .client-logos-header {
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .client-logos-section .section-title {
+      font-size: 24px !important;
+      line-height: 1.18 !important;
+      margin-bottom: 10px;
+    }
+
+    .client-logos-note {
+      max-width: 100%;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .client-logos-slider {
+      padding: 4px 0 12px;
+    }
+
+    .client-logos-slider--desktop {
+      display: none;
+    }
+
+    .client-logos-slider--mobile {
+      display: block;
+    }
+
+    .client-logos-track {
+      animation: clientLogoMobilePages 4s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+      gap: var(--logo-slide-gap);
+    }
+
+    .client-logo-set {
+      width: var(--logo-set-width);
+      flex-basis: var(--logo-set-width);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(3, 86px);
+      gap: 12px;
+    }
+
+    .client-logo-card {
+      padding: 14px 16px;
+      border-radius: 10px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+    }
+
+    .client-logo-card:hover {
+      transform: none;
+    }
+
+    .client-logo-card img {
+      height: 56px;
+    }
+
+    body.light .client-logo-card {
+      box-shadow: 0 10px 22px rgba(16,24,32,0.08);
+    }
+
+    @media (max-width: 380px) {
+      .client-logos-section {
+        --logo-set-width: calc(100vw - 32px);
+        --logo-slide-gap: 10px;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+      }
+
+      .client-logo-set {
+        grid-template-rows: repeat(3, 78px);
+        gap: 10px;
+      }
+
+      .client-logo-card {
+        padding: 12px;
+      }
+
+      .client-logo-card img {
+        height: 50px;
+      }
+    }
 
     /* Sections */
     section { padding: 56px 20px !important; max-width: 100% !important; }
@@ -5145,6 +5400,132 @@ body.light .hero.hero-editorial .hero-bridge-deck--base-center {
     </div>
   </div>
 </div>
+
+<!-- CLIENT LOGOS -->
+<section class="client-logos-section" aria-labelledby="client-logos-title">
+  <div class="client-logos-inner">
+    <div class="client-logos-header">
+      <div>
+        <div class="section-label reveal">Trusted Network</div>
+        <h2 class="section-title reveal reveal-delay-1" id="client-logos-title">Logos we are proud to show</h2>
+      </div>
+      <p class="client-logos-note reveal reveal-delay-2">A quick look at the brands and business ecosystems connected to our growth work.</p>
+    </div>
+
+    <div class="client-logos-slider client-logos-slider--desktop reveal reveal-delay-2" aria-label="Client logo carousel">
+      <div class="client-logos-track">
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/1.png" alt="Client logo 1" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="Client logo 2" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="Client logo 3" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="Client logo 4" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/5.png" alt="Client logo 5" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/6.png" alt="Client logo 6" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/7.png" alt="Client logo 7" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/8.png" alt="Client logo 8" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/9.png" alt="Client logo 9" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/10.png" alt="Client logo 10" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/11.png" alt="Client logo 11" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/12.png" alt="Client logo 12" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/13.png" alt="Client logo 13" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/14.png" alt="Client logo 14" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/15.png" alt="Client logo 15" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/16.png" alt="Client logo 16" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/17.png" alt="Client logo 17" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/18.png" alt="Client logo 18" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/19.png" alt="Client logo 19" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/20.png" alt="Client logo 20" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/1.png" alt="Client logo 1" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="Client logo 2" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="Client logo 3" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="Client logo 4" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set" aria-hidden="true">
+          <div class="client-logo-card"><img src="logos/1.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/5.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/6.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/7.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/8.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/9.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/10.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/11.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/12.png" alt="" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set" aria-hidden="true">
+          <div class="client-logo-card"><img src="logos/13.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/14.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/15.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/16.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/17.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/18.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/19.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/20.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/1.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-logos-slider client-logos-slider--mobile reveal reveal-delay-2" aria-label="Client logo carousel">
+      <div class="client-logos-track">
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/1.png" alt="Client logo 1" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="Client logo 2" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="Client logo 3" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="Client logo 4" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/5.png" alt="Client logo 5" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/6.png" alt="Client logo 6" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/7.png" alt="Client logo 7" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/8.png" alt="Client logo 8" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/9.png" alt="Client logo 9" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/10.png" alt="Client logo 10" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/11.png" alt="Client logo 11" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/12.png" alt="Client logo 12" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/13.png" alt="Client logo 13" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/14.png" alt="Client logo 14" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/15.png" alt="Client logo 15" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/16.png" alt="Client logo 16" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/17.png" alt="Client logo 17" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/18.png" alt="Client logo 18" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set">
+          <div class="client-logo-card"><img src="logos/19.png" alt="Client logo 19" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/20.png" alt="Client logo 20" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/1.png" alt="Client logo 1" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="Client logo 2" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="Client logo 3" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="Client logo 4" loading="lazy"></div>
+        </div>
+
+        <div class="client-logo-set" aria-hidden="true">
+          <div class="client-logo-card"><img src="logos/1.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/2.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/3.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/4.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/5.png" alt="" loading="lazy"></div>
+          <div class="client-logo-card"><img src="logos/6.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="testimonials-section">
