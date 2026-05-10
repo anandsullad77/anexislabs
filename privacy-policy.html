@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N4MHWGN4MP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N4MHWGN4MP');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkvsm99t6f");
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Anexis Labs</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #080b0f;
+    --bg2:      #0e1318;
+    --bg3:      #141c24;
+    --border:   rgba(255,255,255,0.06);
+    --border2:  rgba(255,255,255,0.12);
+    --blue:     #00B4D8;
+    --blue-dim: rgba(0,180,216,0.1);
+    --blue-mid: rgba(0,180,216,0.2);
+    --green:    #22c97b;
+    --amber:    #e8a020;
+    --text:     #eef2f7;
+    --muted:    #7a8fa6;
+    --faint:    #3a4a5c;
+    --nav-bg:   rgba(8,11,15,0.85);
+    --font-display: 'Manrope', sans-serif;
+    --font-body:    'DM Sans', sans-serif;
+  }
+
+  body.light {
+    --bg:       #f5f6f8;
+    --bg2:      #ffffff;
+    --bg3:      #eceef2;
+    --border:   rgba(0,0,0,0.07);
+    --border2:  rgba(0,0,0,0.13);
+    --blue:     #0090b0;
+    --blue-dim: rgba(0,144,176,0.08);
+    --blue-mid: rgba(0,144,176,0.15);
+    --green:    #1a9e5f;
+    --amber:    #c47d0a;
+    --text:     #0d1117;
+    --muted:    #5a6a7a;
+    --faint:    #a0aab4;
+    --nav-bg:   rgba(245,246,248,0.9);
+  }
+
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,180,216,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,180,216,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body.light::before { opacity: 0.1; }
+  body.light::after {
+    background-image:
+      linear-gradient(rgba(0,144,176,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,144,176,0.05) 1px, transparent 1px);
+  }
+
+  *:not(.mobile-nav):not(.mobile-nav *) { position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .logo-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: inline-block;
+    box-shadow: 0 0 12px var(--blue);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: #000 !important;
+    font-weight: 500 !important;
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-size: 14px !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover {
+    background: #00cff5 !important;
+    transform: translateY(-1px);
+  }
+
+  /* THEME TOGGLE */
+  .theme-toggle {
+    width: 44px; height: 24px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  body.light .theme-toggle::after {
+    transform: translateX(20px);
+    background: var(--blue);
+  }
+
+
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 118px 60px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .page-header-label::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--blue);
+  }
+
+  .page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.35s;
+  }
+
+  .page-header h1 span { color: var(--blue); }
+
+  .page-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+    flex-wrap: wrap;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .meta-chip span { color: var(--blue); font-size: 14px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── LAYOUT ── */
+  .policy-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 60px 120px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR TOC ── */
+  .policy-toc {
+    position: sticky;
+    top: 100px;
+  }
+
+  .toc-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-list a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    line-height: 1.4;
+  }
+
+  .toc-list a:hover {
+    color: var(--text);
+    background: var(--blue-dim);
+    border-left-color: var(--blue);
+  }
+
+  .toc-list a.active {
+    color: var(--blue);
+    background: var(--blue-dim);
+    border-left-color: var(--blue);
+    font-weight: 500;
+  }
+
+  /* ── POLICY CONTENT ── */
+  .policy-content {
+    min-width: 0;
+  }
+
+  .policy-section {
+    margin-bottom: 72px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .policy-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .policy-section-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .policy-section-num::before {
+    content: '';
+    width: 16px; height: 1px;
+    background: var(--blue);
+  }
+
+  .policy-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 20px;
+    scroll-margin-top: 108px;
+  }
+
+  .policy-section p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .policy-section p:last-child { margin-bottom: 0; }
+
+  .policy-section a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,180,216,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .policy-section a:hover { border-color: var(--blue); }
+
+  /* Info cards */
+  .info-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 24px 0;
+    border-left: 3px solid var(--blue);
+  }
+
+  .info-card p { margin-bottom: 0; }
+
+  .info-card.amber { border-left-color: var(--amber); }
+  .info-card.green { border-left-color: var(--green); }
+
+  /* List items */
+  .policy-list {
+    list-style: none;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .policy-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .policy-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Data table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+
+  .data-table th {
+    background: var(--bg3);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border2);
+  }
+
+  .data-table td {
+    padding: 14px 16px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--bg2); }
+
+  .data-table-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  /* Divider */
+  .policy-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 72px 0;
+  }
+
+  /* Contact box */
+  .contact-box {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .contact-box-icon {
+    width: 52px; height: 52px;
+    background: var(--blue-dim);
+    border: 1px solid rgba(0,180,216,0.25);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .contact-box h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .contact-box p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+
+  .contact-box a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  .btn-primary {
+    background: var(--blue);
+    color: #000;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover { background: #00cff5; transform: translateY(-2px); }
+
+  .cta-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .cta-inner { max-width: 640px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--blue);
+  }
+
+  .section-label::after {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--blue);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.08;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 60px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    color: var(--faint);
+    margin-top: 12px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 240px;
+    line-height: 1.6;
+  }
+
+  .footer-links { display: flex; gap: 60px; }
+
+  .footer-col h4 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--faint);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p { font-size: 12px; color: var(--faint); font-weight: 300; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .page-header { padding: 120px 24px 60px; }
+    .policy-wrap { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px 80px; }
+    .policy-toc { display: none; }
+    footer { padding: 48px 24px; }
+    .footer-inner { flex-direction: column; gap: 32px; }
+    .footer-links { flex-wrap: wrap; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 6px; text-align: center; margin-top: 28px; padding-top: 24px; }
+    .cta-section { padding: 72px 24px; }
+    .contact-box { flex-direction: column; gap: 20px; padding: 28px 24px; }
+    .data-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .data-table { font-size: 13px; min-width: 720px; }
+    .data-table th, .data-table td { padding: 10px 12px; }
+  }
+
+  *:not(.mobile-nav):not(.mobile-nav *) { position: relative; z-index: 1; }
+  .mobile-nav { position: fixed; z-index: 99; }
+  .nav-wrapper {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    max-width: 1160px;
+    z-index: 100;
+  }
+  nav {
+    position: static;
+    padding: 0 18px 0 22px;
+    min-height: 72px;
+    height: auto;
+    background: rgba(255,255,255,0.98);
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.06);
+    gap: 20px;
+  }
+  body:not(.light) nav {
+    background: rgba(13,18,24,0.97);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .logo {
+    gap: 10px;
+    flex-shrink: 0;
+    height: 100%;
+  }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    margin-left: auto;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+  }
+  .nav-links > li > a {
+    color: #3a3a4a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    padding: 9px 14px;
+    border-radius: 100px;
+    transition: color 0.18s, background 0.18s;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  body:not(.light) .nav-links > li > a {
+    color: #b8c8d8;
+  }
+  .nav-links > li > a:hover {
+    color: var(--blue);
+    background: var(--blue-dim);
+  }
+  .nav-links li {
+    position: relative;
+  }
+  .nav-links > li.has-dropdown-item {
+    position: relative;
+  }
+  .nav-links > li.has-dropdown-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 18px;
+  }
+  .dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px !important;
+  }
+  .nav-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 2px;
+    border-radius: 999px;
+    color: currentColor;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.07);
+    opacity: 0.9;
+    transition: transform 0.22s ease, opacity 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+    flex-shrink: 0;
+  }
+  body:not(.light) .nav-arrow {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .nav-arrow svg {
+    width: 12px;
+    height: 12px;
+    display: block;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .nav-links > li.has-dropdown-item:hover .nav-arrow,
+  .nav-links > li.has-dropdown-item:focus-within .nav-arrow {
+    transform: translateY(1px) rotate(180deg);
+    opacity: 1;
+    background: var(--blue-dim);
+    border-color: rgba(0,180,216,0.22);
+    color: var(--blue);
+  }
+  .nav-links li .dropdown {
+    display: block;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    transform: translateY(8px);
+    background: rgba(255,255,255,0.98);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 20px;
+    width: 560px;
+    padding: 12px;
+    z-index: 220;
+    box-shadow: 0 22px 60px rgba(0,0,0,0.14);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  }
+  body:not(.light) .nav-links li .dropdown {
+    background: rgba(14,19,24,0.98);
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+  }
+  .nav-links li:hover .dropdown,
+  .nav-links li:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav-links li .dropdown::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 30px;
+    width: 14px;
+    height: 14px;
+    background: inherit;
+    border-left: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    transform: rotate(45deg);
+  }
+  body:not(.light) .nav-links li .dropdown::before {
+    border-left-color: rgba(255,255,255,0.09);
+    border-top-color: rgba(255,255,255,0.09);
+  }
+  .solutions-dropdown {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .nav-links li .dropdown a.solution-menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+    min-height: 112px;
+    padding: 16px;
+    color: #334155;
+    background: rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 16px;
+    text-decoration: none;
+    white-space: normal;
+    transition: color 0.18s, background 0.18s, border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+  }
+  body:not(.light) .nav-links li .dropdown a.solution-menu-card {
+    color: #d7e1ea;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-links li .dropdown a.solution-menu-card:hover {
+    color: var(--text);
+    background: var(--blue-dim);
+    border-color: rgba(0,180,216,0.24);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+  .solution-menu-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: inherit;
+    line-height: 1.3;
+  }
+  .solution-menu-desc {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .nav-cta {
+    background: var(--blue) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    padding: 11px 18px !important;
+    border-radius: 100px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s !important;
+    line-height: 1;
+  }
+  .nav-cta:hover {
+    background: #00cff5 !important;
+    color: #000 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 18px rgba(0,180,216,0.32) !important;
+  }
+  .desktop-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .mobile-actions {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .theme-toggle-btn {
+    background: none;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  body:not(.light) .theme-toggle-btn {
+    border-color: rgba(255,255,255,0.18);
+  }
+  .theme-toggle-btn:hover {
+    background: var(--blue-dim);
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .hamburger:hover {
+    background: none;
+  }
+  .hamburger.open span:nth-child(1),
+  .hamburger.open span:nth-child(2),
+  .hamburger.open span:nth-child(3) {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .mobile-nav-toggle-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    font-size: 15px;
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 78px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px 24px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:hover { color: var(--text); }
+  .mobile-nav .nav-cta {
+    margin-top: 12px;
+    background: var(--blue);
+    color: #fff !important;
+    font-weight: 600 !important;
+    padding: 12px 20px;
+    border-radius: 100px;
+    text-align: center;
+    border: none;
+  }
+  @media (max-width: 860px) {
+    .nav-wrapper {
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      transform: none;
+    }
+    nav {
+      padding: 0 24px;
+      min-height: 68px;
+      border-radius: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+    .nav-right,
+    .nav-links,
+    .desktop-actions {
+      display: none !important;
+    }
+    .mobile-actions { display: flex; }
+    .hamburger { display: flex !important; }
+    .mobile-nav { top: 68px; bottom: 0; }
+    .page-header {
+      padding: 96px 24px 44px !important;
+    }
+  }
+  html.menu-open,
+  body.menu-open { overflow: hidden; }
+  @media (max-width: 640px) {
+    .page-header {
+      padding: 88px 18px 36px !important;
+    }
+    .page-header-label {
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      margin-bottom: 18px;
+      gap: 6px;
+    }
+    .page-header-label::before {
+      width: 18px;
+    }
+    .page-header h1 {
+      font-size: 34px;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+    .page-header-meta {
+      gap: 10px;
+    }
+    .meta-chip {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 14px;
+    }
+    .policy-wrap {
+      padding: 36px 18px 64px;
+      gap: 36px;
+    }
+    .policy-section {
+      margin-bottom: 52px;
+    }
+    .policy-section h2 {
+      font-size: 24px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .policy-section p,
+    .policy-list li {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .policy-section-num {
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      margin-bottom: 10px;
+    }
+    .info-card {
+      padding: 18px 18px;
+      margin: 18px 0;
+      border-radius: 10px;
+    }
+    .contact-box {
+      padding: 20px 18px;
+      gap: 16px;
+      border-radius: 14px;
+    }
+    .contact-box-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+    .contact-box h3 {
+      font-size: 16px;
+    }
+    .cta-section,
+    footer {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+    .section-title {
+      font-size: 28px;
+      letter-spacing: -0.8px;
+    }
+    .section-sub {
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .footer-links {
+      gap: 24px;
+    }
+    .footer-bottom p {
+      font-size: 11px;
+      line-height: 1.5;
+    }
+  }
+  /* ── HERO GLOW ── */
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: 60px;
+    left: -80px;
+    width: 560px;
+    height: 280px;
+    background: radial-gradient(ellipse at 30% 50%, rgba(0,180,216,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page-header > * { position: relative; z-index: 1; }
+
+  /* ── READING PROGRESS ── */
+  #reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--blue), #00e5ff);
+    z-index: 9999;
+    transition: width 0.1s linear;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* ── BACK TO TOP ── */
+  #back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    color: var(--muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.25s, visibility 0.25s, transform 0.25s, background 0.2s, color 0.2s;
+    z-index: 900;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #back-to-top:hover { background: var(--blue-dim); color: var(--blue); border-color: rgba(0,180,216,0.4); }
+
+  /* ── MOBILE POLICY TOC ── */
+  .policy-mobile-toc {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 32px;
+  }
+  .policy-mobile-toc-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .policy-mobile-toc-toggle:hover { background: var(--bg3); border-color: var(--blue); }
+  .policy-mobile-toc-toggle svg { transition: transform 0.25s; flex-shrink: 0; }
+  .policy-mobile-toc-toggle.open svg { transform: rotate(180deg); }
+  .policy-mobile-toc-list {
+    display: none;
+    flex-direction: column;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+  .policy-mobile-toc-list.open { display: flex; }
+  .policy-mobile-toc-list a {
+    padding: 11px 18px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.18s, background 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .policy-mobile-toc-list a:last-child { border-bottom: none; }
+  .policy-mobile-toc-list a:hover { color: var(--blue); background: var(--blue-dim); }
+  .policy-mobile-toc-list a .toc-num {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    min-width: 22px;
+  }
+
+  @media (max-width: 900px) {
+    .policy-mobile-toc { display: block; }
+  }
+
+  @media (max-width: 420px) {
+    nav {
+      padding: 0 20px;
+      min-height: 64px;
+    }
+    .logo {
+      font-size: 17px;
+      gap: 8px;
+    }
+    .mobile-nav a {
+      font-size: 14px;
+      padding: 11px 0;
+    }
+    .page-header h1 {
+      font-size: 30px;
+    }
+    .policy-wrap {
+      padding-left: 14px;
+      padding-right: 14px;
+    }
+    .data-table { min-width: 640px; }
+  }
+</style>
+</head>
+<body class="light">
+
+  <div id="reading-progress" aria-hidden="true"></div>
+  <button id="back-to-top" aria-label="Back to top" title="Back to top">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M8 12V4M4 7.5 8 4l4 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+<div class="nav-wrapper">
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="logo-dot"></span>
+      Anexis Labs
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li class="has-dropdown-item">
+          <a href="index.html#solutions" class="dropdown-trigger">
+            <span>Solutions</span>
+            <span class="nav-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M4 6.5 8 10.5 12 6.5"/></svg></span>
+          </a>
+          <div class="dropdown solutions-dropdown">
+            <a href="services/b2b-digital-marketing.html" class="solution-menu-card">
+              <span class="solution-menu-title">B2B Digital Marketing</span>
+              <span class="solution-menu-desc">Lead generation systems built for longer sales cycles and high-value deals.</span>
+            </a>
+            <a href="index.html#solutions" class="solution-menu-card">
+              <span class="solution-menu-title">Performance Marketing</span>
+              <span class="solution-menu-desc">Conversion-focused paid campaigns across Google, Meta, and other growth channels.</span>
+            </a>
+            <a href="index.html#solutions" class="solution-menu-card">
+              <span class="solution-menu-title">LinkedIn Marketing</span>
+              <span class="solution-menu-desc">Organic and paid LinkedIn strategies to build authority and attract decision-makers.</span>
+            </a>
+            <a href="index.html#solutions" class="solution-menu-card">
+              <span class="solution-menu-title">Personal Branding</span>
+              <span class="solution-menu-desc">Thought-leadership content and positioning that turns founders into trust magnets.</span>
+            </a>
+          </div>
+        </li>
+        <li><a href="index.html#work">Case Studies</a></li>
+        <li><a href="index.html#process">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="desktop-actions">
+        <button class="theme-toggle-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" data-theme-toggle>☀</button>
+        <a href="contact.html" class="nav-cta">Talk to a Strategist</a>
+      </div>
+    </div>
+    <div class="mobile-actions">
+      <button class="theme-toggle-btn mobile-nav-toggle-btn" type="button" onclick="toggleTheme()" aria-label="Toggle theme" data-theme-toggle>☀</button>
+      <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#solutions" onclick="toggleMenu()">Solutions</a>
+  <a href="services/b2b-digital-marketing.html" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">B2B Digital Marketing</a>
+  <a href="index.html#solutions" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Performance Marketing</a>
+  <a href="index.html#solutions" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">LinkedIn Marketing</a>
+  <a href="index.html#solutions" style="padding-left:32px; font-size:13px; opacity:0.8;" onclick="toggleMenu()">Personal Branding</a>
+  <a href="index.html#work" onclick="toggleMenu()">Case Studies</a>
+  <a href="index.html#process" onclick="toggleMenu()">About Us</a>
+  <a href="contact.html" onclick="toggleMenu()">Contact</a>
+  <a href="contact.html" class="nav-cta" onclick="toggleMenu()">Talk to a Strategist</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-label">Legal · Transparency</div>
+  <h1>Privacy <span>Policy.</span></h1>
+  <div class="page-header-meta">
+    <div class="meta-chip"><span>📅</span> Last updated: April 2026</div>
+    <div class="meta-chip"><span>📍</span> Bangalore, India</div>
+    <div class="meta-chip"><span>🌐</span> Applies globally</div>
+  </div>
+</div>
+
+<!-- MOBILE TOC — visible on ≤900px -->
+<div class="policy-mobile-toc">
+  <button class="policy-mobile-toc-toggle" id="policyMobileTocToggle" onclick="togglePolicyToc()" aria-expanded="false">
+    <span>Jump to section</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="policy-mobile-toc-list" id="policyMobileTocList">
+    <a href="#overview" onclick="closePolicyToc()"><span class="toc-num">01</span> Overview</a>
+    <a href="#data-we-collect" onclick="closePolicyToc()"><span class="toc-num">02</span> Data We Collect</a>
+    <a href="#how-we-use" onclick="closePolicyToc()"><span class="toc-num">03</span> How We Use Data</a>
+    <a href="#cookies" onclick="closePolicyToc()"><span class="toc-num">04</span> Cookies &amp; Tracking</a>
+    <a href="#sharing" onclick="closePolicyToc()"><span class="toc-num">05</span> Data Sharing</a>
+    <a href="#retention" onclick="closePolicyToc()"><span class="toc-num">06</span> Data Retention</a>
+    <a href="#your-rights" onclick="closePolicyToc()"><span class="toc-num">07</span> Your Rights</a>
+    <a href="#security" onclick="closePolicyToc()"><span class="toc-num">08</span> Security</a>
+    <a href="#children" onclick="closePolicyToc()"><span class="toc-num">09</span> Children's Privacy</a>
+    <a href="#changes" onclick="closePolicyToc()"><span class="toc-num">10</span> Policy Changes</a>
+    <a href="#contact" onclick="closePolicyToc()"><span class="toc-num">11</span> Contact Us</a>
+  </div>
+</div>
+
+<!-- POLICY BODY -->
+<div class="policy-wrap">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="policy-toc">
+    <div class="toc-label">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#overview" class="toc-link">Overview</a></li>
+      <li><a href="#data-we-collect" class="toc-link">Data We Collect</a></li>
+      <li><a href="#how-we-use" class="toc-link">How We Use Data</a></li>
+      <li><a href="#cookies" class="toc-link">Cookies & Tracking</a></li>
+      <li><a href="#sharing" class="toc-link">Data Sharing</a></li>
+      <li><a href="#retention" class="toc-link">Data Retention</a></li>
+      <li><a href="#your-rights" class="toc-link">Your Rights</a></li>
+      <li><a href="#security" class="toc-link">Security</a></li>
+      <li><a href="#children" class="toc-link">Children's Privacy</a></li>
+      <li><a href="#changes" class="toc-link">Policy Changes</a></li>
+      <li><a href="#contact" class="toc-link">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="policy-content">
+
+    <!-- 1. OVERVIEW -->
+    <div class="policy-section" id="overview">
+      <div class="policy-section-num">01</div>
+      <h2>Overview</h2>
+      <p>Anexis Labs ("we", "us", or "our") is a data-first B2B digital marketing agency headquartered in Bangalore, India. This Privacy Policy explains how we collect, use, store and protect information when you visit our website, submit an inquiry, or engage with our services.</p>
+      <p>We take your privacy seriously. This document is written in plain language so you know exactly what data we handle and why — not to hide behind legal jargon.</p>
+      <div class="info-card green">
+        <p>By using our website or services, you agree to the practices described in this policy. If you disagree with any part, please refrain from using our site or contact us to raise your concern.</p>
+      </div>
+    </div>
+
+    <!-- 2. DATA WE COLLECT -->
+    <div class="policy-section" id="data-we-collect">
+      <div class="policy-section-num">02</div>
+      <h2>Data We Collect</h2>
+      <p>We collect two types of data: information you provide directly, and information collected automatically when you browse our site.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>What We Collect</th>
+              <th>How</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--text)">Contact Information</strong></td>
+              <td>Name, email address, phone number, company name</td>
+              <td>Contact form submission</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Inquiry Details</strong></td>
+              <td>Service interest, project description, message content</td>
+              <td>Contact form submission</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Usage Data</strong></td>
+              <td>Pages visited, time on page, scroll depth, button clicks</td>
+              <td>Analytics script (first-party)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Device & Browser</strong></td>
+              <td>Device type, screen resolution, browser user agent</td>
+              <td>Analytics script (first-party)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Location (approximate)</strong></td>
+              <td>Country, city (derived from IP address)</td>
+              <td>IP geolocation (ipapi.co)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">IP Address</strong></td>
+              <td>Your public IP address</td>
+              <td>Analytics script (first-party)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Referral Source</strong></td>
+              <td>How you arrived (Google, LinkedIn, direct, etc.)</td>
+              <td>HTTP referrer header</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>We do <strong style="color:var(--text)">not</strong> collect payment card details, government IDs, or any sensitive personal information.</p>
+    </div>
+
+    <!-- 3. HOW WE USE DATA -->
+    <div class="policy-section" id="how-we-use">
+      <div class="policy-section-num">03</div>
+      <h2>How We Use Your Data</h2>
+      <p>Every piece of data we collect has a specific purpose. We do not use your data for anything beyond what is listed below:</p>
+
+      <ul class="policy-list">
+        <li>To respond to your inquiry and follow up on service conversations</li>
+        <li>To understand which pages and content are most useful to visitors</li>
+        <li>To improve our website experience based on real usage patterns</li>
+        <li>To identify which marketing channels are driving qualified traffic</li>
+        <li>To detect and prevent fraudulent or abusive activity on our site</li>
+        <li>To maintain internal records of client communications and leads</li>
+        <li>To send service updates or proposals you have explicitly requested</li>
+      </ul>
+
+      <div class="info-card amber">
+        <p>We do <strong>not</strong> sell your data to third parties, use it for ad targeting, or share it with data brokers under any circumstances.</p>
+      </div>
+    </div>
+
+    <!-- 4. COOKIES -->
+    <div class="policy-section" id="cookies">
+      <div class="policy-section-num">04</div>
+      <h2>Cookies & Tracking</h2>
+      <p>We use a lightweight, first-party analytics system to understand how visitors use our site. Unlike Google Analytics or Meta Pixel, our tracking is self-hosted and does not share data with advertising networks.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Cookie / Storage Key</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code style="color:var(--blue);font-size:13px;">_ax_sid</code></td>
+              <td>Anonymous session identifier for this visit</td>
+              <td>Session (cleared on browser close)</td>
+            </tr>
+            <tr>
+              <td><code style="color:var(--blue);font-size:13px;">_ax_vid</code></td>
+              <td>Anonymous visitor identifier for return visit detection</td>
+              <td>1 year (localStorage)</td>
+            </tr>
+            <tr>
+              <td><code style="color:var(--blue);font-size:13px;">_ax_vc</code></td>
+              <td>Visit count (to distinguish new vs returning)</td>
+              <td>1 year (localStorage)</td>
+            </tr>
+            <tr>
+              <td><code style="color:var(--blue);font-size:13px;">_ax_ab</code></td>
+              <td>A/B test variant assignment</td>
+              <td>1 year (localStorage)</td>
+            </tr>
+            <tr>
+              <td><code style="color:var(--blue);font-size:13px;">theme</code></td>
+              <td>Your dark/light mode preference</td>
+              <td>Persistent (localStorage)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>All identifiers are randomly generated and contain no personal information. You can clear these at any time via your browser settings (Settings → Clear browsing data → Cookies and site data).</p>
+
+      <p>We do <strong style="color:var(--text)">not</strong> use Google Analytics, Meta Pixel, HubSpot tracking, or any third-party advertising cookies.</p>
+    </div>
+
+    <!-- 5. SHARING -->
+    <div class="policy-section" id="sharing">
+      <div class="policy-section-num">05</div>
+      <h2>Data Sharing & Third Parties</h2>
+      <p>We share minimal data with the following trusted infrastructure providers, solely to operate our website and services:</p>
+
+      <ul class="policy-list">
+        <li><strong style="color:var(--text)">Supabase</strong> — our database provider stores form submissions and analytics events on secure, encrypted servers (EU region). <a href="https://supabase.com/privacy" target="_blank">Supabase Privacy Policy →</a></li>
+        <li><strong style="color:var(--text)">Cloudflare</strong> — provides DNS, DDoS protection, and email obfuscation. Cloudflare may log request metadata. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Privacy Policy →</a></li>
+        <li><strong style="color:var(--blue)">ipapi.co</strong> — used to determine your approximate country and city from your IP address for analytics purposes only. Your IP is not permanently stored by ipapi.co. <a href="https://ipapi.co/privacy/" target="_blank">ipapi Privacy Policy →</a></li>
+        <li><strong style="color:var(--text)">FormSubmit</strong> — if you submit our contact form, it is processed via FormSubmit to deliver email notifications to our team. <a href="https://formsubmit.co/privacy.pdf" target="_blank">FormSubmit Privacy Policy →</a></li>
+      </ul>
+
+      <p>We do not share your data with any other third parties, including advertising platforms, data brokers, or analytics companies, except as required by law.</p>
+    </div>
+
+    <!-- 6. RETENTION -->
+    <div class="policy-section" id="retention">
+      <div class="policy-section-num">06</div>
+      <h2>Data Retention</h2>
+      <p>We retain your data only as long as necessary for the purposes described in this policy:</p>
+
+      <ul class="policy-list">
+        <li><strong style="color:var(--text)">Contact form submissions</strong> — retained for up to 2 years to support business communications. You may request deletion at any time.</li>
+        <li><strong style="color:var(--text)">Analytics events</strong> — retained for up to 1 year, then automatically purged.</li>
+        <li><strong style="color:var(--text)">Session & visitor identifiers</strong> — stored in your browser's localStorage and expire after 1 year of inactivity, or can be cleared by you at any time.</li>
+      </ul>
+
+      <div class="info-card">
+        <p>If you would like your data deleted before the standard retention period, please email us and we will process the deletion within 7 business days.</p>
+      </div>
+    </div>
+
+    <!-- 7. YOUR RIGHTS -->
+    <div class="policy-section" id="your-rights">
+      <div class="policy-section-num">07</div>
+      <h2>Your Rights</h2>
+      <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+
+      <ul class="policy-list">
+        <li><strong style="color:var(--text)">Right to access</strong> — request a copy of any personal data we hold about you</li>
+        <li><strong style="color:var(--text)">Right to rectification</strong> — request correction of inaccurate data</li>
+        <li><strong style="color:var(--text)">Right to erasure</strong> — request that we delete your personal data ("right to be forgotten")</li>
+        <li><strong style="color:var(--text)">Right to portability</strong> — receive your data in a structured, machine-readable format</li>
+        <li><strong style="color:var(--text)">Right to object</strong> — object to certain uses of your data, including direct marketing</li>
+        <li><strong style="color:var(--text)">Right to withdraw consent</strong> — where processing is based on consent, withdraw it at any time</li>
+      </ul>
+
+      <p>These rights apply under GDPR (EU/UK), India's DPDP Act 2023, and similar legislation. To exercise any right, contact us at the details in Section 11.</p>
+    </div>
+
+    <!-- 8. SECURITY -->
+    <div class="policy-section" id="security">
+      <div class="policy-section-num">08</div>
+      <h2>Security</h2>
+      <p>We take reasonable technical and organisational measures to protect your data from unauthorised access, loss, or disclosure:</p>
+
+      <ul class="policy-list">
+        <li>All data is transmitted over HTTPS (TLS 1.2+)</li>
+        <li>Database access is protected by row-level security policies</li>
+        <li>Admin access to lead data is password-protected and session-scoped</li>
+        <li>API keys are never exposed in client-side code beyond necessary anon-key scope</li>
+        <li>No payment data is stored on our systems</li>
+      </ul>
+
+      <p>However, no system is 100% secure. If you believe your data has been compromised, please notify us immediately at the contact details below.</p>
+    </div>
+
+    <!-- 9. CHILDREN -->
+    <div class="policy-section" id="children">
+      <div class="policy-section-num">09</div>
+      <h2>Children's Privacy</h2>
+      <p>Our website and services are directed at business professionals and are not intended for individuals under the age of 18. We do not knowingly collect personal data from children.</p>
+      <p>If you believe a minor has submitted data through our site, please contact us immediately and we will delete it promptly.</p>
+    </div>
+
+    <!-- 10. CHANGES -->
+    <div class="policy-section" id="changes">
+      <div class="policy-section-num">10</div>
+      <h2>Policy Changes</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. When we do, we will update the "Last updated" date at the top of this page.</p>
+      <p>We encourage you to review this page periodically. Continued use of our website after changes are posted constitutes your acceptance of the updated policy.</p>
+      <div class="info-card">
+        <p>Significant changes that materially affect how we handle personal data will be communicated via a notice on our homepage for at least 30 days before taking effect.</p>
+      </div>
+    </div>
+
+    <!-- 11. CONTACT -->
+    <div class="policy-section" id="contact">
+      <div class="policy-section-num">11</div>
+      <h2>Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, want to exercise your data rights, or wish to report a concern, please reach out to us directly:</p>
+
+      <div class="contact-box">
+        <div class="contact-box-icon">✉️</div>
+        <div>
+          <h3>Anexis Labs — Privacy Team</h3>
+          <p>Bangalore, Karnataka, India</p>
+          <p style="margin-top:8px;">Email: <a href="mailto:privacy@anexislabs.com">privacy@anexislabs.com</a></p>
+          <p>General inquiries: <a href="/contact.html">Contact form →</a></p>
+          <p style="margin-top:8px;font-size:13px;color:var(--faint);">We aim to respond to all privacy-related requests within 5 business days.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /policy-content -->
+</div><!-- /policy-wrap -->
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label reveal">Work With Us</div>
+    <h2 class="section-title reveal reveal-delay-1">Questions about<br>your data?</h2>
+    <p class="section-sub reveal reveal-delay-2">We're transparent by default. If anything in this policy is unclear or you'd like to talk through how we handle data, just reach out.</p>
+    <div class="reveal reveal-delay-3">
+      <a href="/contact.html" class="btn-primary">Get in Touch →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-dot"></span>
+        Anexis Labs
+      </a>
+      <p>Data-first. Process-driven. Engineer-built.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h3>Solutions</h3>
+        <a href="/#solutions">Performance Marketing</a>
+        <a href="/#solutions">B2B Digital Marketing</a>
+        <a href="/#solutions">LinkedIn Marketing</a>
+        <a href="/#solutions">Personal Branding</a>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <a href="/#work">Case Studies</a>
+        <a href="/#process">About</a>
+        <a href="/#process">Process</a>
+        <a href="/contact.html">Contact</a>
+        <a href="privacy-policy.html" style="color:var(--blue);">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Anexis Labs. All rights reserved.</p>
+    <p>Bangalore, India · Global Clients</p>
+  </div>
+</footer>
+
+<script>
+  function updateThemeToggleIcons() {
+    const icon = document.body.classList.contains('light') ? '☀' : '☾';
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+      btn.textContent = icon;
+    });
+  }
+
+  function toggleMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburgerBtn = document.querySelector('.mobile-actions .hamburger');
+    const isOpen = mobileNav.classList.toggle('open');
+    document.body.classList.toggle('menu-open', isOpen);
+    document.documentElement.classList.toggle('menu-open', isOpen);
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    }
+  }
+
+  // ── THEME ──
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    updateThemeToggleIcons();
+  }
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.remove('light');
+  } else {
+    document.body.classList.add('light');
+  }
+  updateThemeToggleIcons();
+
+  // ── HAMBURGER ──
+  const hamburger = document.querySelector('.mobile-actions .hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open');
+      if (hamburger) {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileNav.classList.contains('open') &&
+        !mobileNav.contains(e.target) &&
+        (!hamburger || !hamburger.contains(e.target))) {
+      mobileNav.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      document.documentElement.classList.remove('menu-open');
+      if (hamburger) {
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      }
+    }
+  });
+
+  // ── READING PROGRESS ──
+  var progressBar = document.getElementById('reading-progress');
+  function updateProgress() {
+    if (!progressBar) return;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  // ── BACK TO TOP ──
+  var backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.35);
+    }, { passive: true });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ── MOBILE POLICY TOC ──
+  function togglePolicyToc() {
+    var list = document.getElementById('policyMobileTocList');
+    var btn  = document.getElementById('policyMobileTocToggle');
+    if (!list || !btn) return;
+    var open = list.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
+  function closePolicyToc() {
+    var list = document.getElementById('policyMobileTocList');
+    var btn  = document.getElementById('policyMobileTocToggle');
+    if (!list || !btn) return;
+    list.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  document.querySelectorAll('.policy-section').forEach(el => revealObs.observe(el));
+
+  // ── ACTIVE TOC ──
+  const sections  = document.querySelectorAll('.policy-section[id]');
+  const tocLinks  = document.querySelectorAll('.toc-link');
+
+  const tocObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  sections.forEach(s => tocObs.observe(s));
+</script>
+</body>
+</html>
